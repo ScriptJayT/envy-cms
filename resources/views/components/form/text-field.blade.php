@@ -1,7 +1,8 @@
 @props(['_icon'=>false, '_label'=>false, '_action'=>false ])
 
 @php
-$id = 'text-'.uniqid();
+$fieldtype = $attributes->get('type') ?? 'text';
+$id = $fieldtype.'-'.uniqid();
 $readonly = $attributes->get('readonly') != null;
 @endphp
 
