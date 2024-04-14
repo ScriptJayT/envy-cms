@@ -18,13 +18,25 @@
         @csrf
         @method('patch')
 
-        <fieldset class="border p-6 rounded-lg">
-            <legend class="dark:text-white">Login Data</legend>
+        <fieldset class="border border-gray-500 p-6 rounded-lg">
+            <legend class="dark:text-gray-500 text-2xl">Login Data</legend>
 
             <div class="space-y-6">
                 <x-form.text-field readonly :value="$user->handle" _icon='unprotected' :_label="__('Handle')" _action='copy' />
 
-                <x-form.text-field readonly :value="old('email',$user->email)" _icon='unprotected' :_label="__('Registered Email')" _action='copy'>
+                <x-form.text-field name="email" type="email" required :value="old('email',$user->email)" _icon='unprotected' :_label="__('Registered Email')" _action='copy'>
+                    <x-slot:after_label>
+                        @if($user->hasVerifiedEmail())
+                        <icon title="Your email has been verified. Good job!" class="cursor-help block size-5 text-green-600 dark:text-green-400">
+                            <x-media.svg source="formfields.svg#check" />
+                        </icon>
+                        @else
+                        <icon title="Your email should be verified." class="cursor-help block size-5 text-red-600 dark:text-red-400">
+                            <x-media.svg source="formfields.svg#cross" />
+                        </icon>
+                        @endif
+                    </x-slot:after_label>
+
                     @if ($user instanceof \Illuminate\Contracts\Auth\MustVerifyEmail && ! $user->hasVerifiedEmail())
                     <div>
                         <p class="text-sm mt-2 text-gray-800 dark:text-gray-200">
@@ -35,8 +47,6 @@
                             </button>
                         </p>
                     </div>
-                    @else
-                    <p class="mt-2 font-medium text-sm text-green-600 dark:text-green-400">{{__('Your email addres has been verified. Good job.')}}</p>
                     @endif
 
                     @if (session('status') === 'verification-link-sent')
@@ -44,40 +54,16 @@
                         {{ __('A new verification link has been sent to your email address.') }}
                     </p>
                     @endif
-                </x-form.text-field>
 
-                <div>
-                    <x-input-label for="email" :value="__('Email')" />
-                    <x-text-input id="email" name="email" type="email" class="mt-1 block w-full" :value="old('email', $user->email)" required autocomplete="username" />
                     <x-input-error class="mt-2" :messages="$errors->get('email')" />
-
-                    @if ($user instanceof \Illuminate\Contracts\Auth\MustVerifyEmail && ! $user->hasVerifiedEmail())
-                    <div>
-                        <p class="text-sm mt-2 text-gray-800 dark:text-gray-200">
-                            {{ __('Your email address is unverified.') }}
-
-                            <button form="send-verification" class="underline text-sm text-gray-600 dark:text-gray-400 hover:text-gray-900 dark:hover:text-gray-100 rounded-md focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500 dark:focus:ring-offset-gray-800">
-                                {{ __('Click here to re-send the verification email.') }}
-                            </button>
-                        </p>
-
-                        @if (session('status') === 'verification-link-sent')
-                        <p class="mt-2 font-medium text-sm text-green-600 dark:text-green-400">
-                            {{ __('A new verification link has been sent to your email address.') }}
-                        </p>
-                        @endif
-                    </div>
-                    @else
-                    <p class="mt-2 font-medium text-sm text-green-600 dark:text-green-400">{{__('Your email addres has been verified. Good job.')}}</p>
-                    @endif
-                </div>
+                </x-form.text-field>
 
                 <x-form.text-field readonly value="The Password You Choose" _icon='protected' :_label="__('Password')" />
             </div>
         </fieldset>
 
-        <fieldset class="border p-6 rounded-lg">
-            <legend class="dark:text-white">Personal Data</legend>
+        <fieldset class="border border-gray-500 p-6 rounded-lg">
+            <legend class="dark:text-gray-500 text-2xl">Personal Data</legend>
 
             <div class="space-y-6">
                 <div>

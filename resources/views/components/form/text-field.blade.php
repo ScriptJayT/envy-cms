@@ -1,14 +1,25 @@
-@props(['_icon'=>false, '_label'=>false, '_action'=>false])
+@props(['_icon'=>false, '_label'=>false, '_action'=>false ])
 
-@php($id = 'text-'.uniqid())
+@php
+$id = 'text-'.uniqid();
+$readonly = $attributes->get('readonly') != null;
+@endphp
 
 <div>
 
     @if($_label)
-    <label @class(["block w-fit", "font-medium text-sm" , "text-gray-700 dark:text-gray-300" ]) for="{{ $id }}">{{ $_label }}</label>
+    <label @class(["flex items-center gap-2 w-fit", "font-medium text-sm" , "text-gray-700 dark:text-gray-300" ]) for="{{ $id }}">
+        <span class="block">
+            {{ $_label }}
+        </span>
+
+        @if($after_label ?? null)
+        {{ $after_label }}
+        @endif
+    </label>
     @endif
 
-    <envy-formfield @class([ "block"=> !$_icon, "flex"=> $_icon, "mt-1" => $_label, "border rounded-sm shadow-sm", "border-gray-300 dark:border-gray-700", "text-gray-700 dark:text-gray-300", "bg-white dark:bg-gray-900", ])>
+    <envy-formfield @class([ "block"=> !$_icon, "flex"=> $_icon, "mt-1" => $_label, "border rounded-sm shadow-sm", "border-gray-300 dark:border-gray-700", "text-gray-700 dark:text-gray-300", "bg-white dark:bg-gray-900" => !$readonly, "bg-white-200 bg-gray-700" => $readonly ])>
 
         @if($_icon)
         <span class='cursor-help shrink-0 grid place-content-center ps-3 pe-1 py-2'>
@@ -33,7 +44,7 @@
 
         @endif
 
-        <input {{ $attributes }} id="{{ $id }}" type="text" @class([ 'block w-full py-2' , 'px-3'=> !$_icon, 'ps-2 pe-3' => $_icon, 'border-0 border-r' , 'border-gray-300 dark:border-gray-700' , 'bg-transparent' ])>
+        <input {{ $attributes }} id="{{ $id }}" type="text" @class([ 'block w-full py-2' , 'px-3'=> !$_icon, 'ps-2 pe-3' => $_icon, 'border-0 border-r' , 'border-gray-300 dark:border-gray-700' , 'italic'=>$readonly, 'bg-transparent' ])>
 
         @if($_action)
         <button type=button class="shrink-0 block px-3 py-2" envy-action="{{ $_action }}">
