@@ -10,12 +10,44 @@ class Inspire
 
     private $quotes = [
         [
-            'quote' => "Nonbinary people are gods.",
-            'person' => "Jammidodger",
-            'tags' => ['pride', 'enby', 'youtuber'],
+
+            'quote' => "The weight of discipline versus the weight of regret. /n Now, take the discipline, it weighs ounces; the regret weighs tons.",
+            'person' => "Jim Rohn",
+            'tags' => [],
         ],
         [
-            'quote' => "Nonbinary culture is running as far as possible from your agab and then approaching it cautiously from the other side.",
+
+            'quote' => "If the \'why\' is powerfull, the \'how\' is easy",
+            'person' => "Jim Rohn",
+            'tags' => [],
+        ],
+        [
+            'quote' => "Why not you?",
+            'person' => "Jim Rohn",
+            'tags' => [],
+        ],
+        [
+            'quote' => "A parkbench in the rain is always free.",
+            'person' => "Jace",
+            'tags' => [],
+        ],
+        [
+            'quote' => "Being yourself is easy. /n Being yourself loudly is hard.",
+            'person' => "Jace",
+            'tags' => ['pride'],
+        ],
+        [
+            'quote' => "If you think you are faking it, you are not. /n People know when they [themselves] are faking something.",
+            'person' => "OneTopic",
+            'tags' => ['pride', 'trans', 'youtube'],
+        ],
+        [
+            'quote' => "Nonbinary people are gods.",
+            'person' => "Jammidodger",
+            'tags' => ['pride', 'enby', 'youtube'],
+        ],
+        [
+            'quote' => "Nonbinary culture is running as far as possible from your AGAB and then approaching it cautiously from the other side.",
             'person' => "NN",
             'tags' => ['pride', 'enby'],
         ],
@@ -30,14 +62,14 @@ class Inspire
             'tags' => ['language'],
         ],
         [
-            'quote' => "Don/'t name your children after fictional characters. /n If they\'re transgender enough, they/'ll do it themselves.",
+            'quote' => "Don\'t name your children after fictional characters. /n If they\'re transgender enough, they\'ll do it themselves.",
             'person' => "NN",
             'tags' => ['pride', 'trans'],
         ],
         [
             'quote' => "You must be the change you wish to see in the world.",
             'person' => "Mahatma Gandhi",
-            'tags' => ['religious'],
+            'tags' => ['religion'],
         ],
         [
             'quote' => "Always remember that you are absolutely unique. Just like everyone else.",
@@ -152,7 +184,7 @@ class Inspire
         [
             'quote' => "Live as if you were to die tomorrow. Learn as if you were to live forever.",
             'person' => "Mahatma Gandhi",
-            'tags' => ['religious'],
+            'tags' => ['religion'],
         ],
         [
             'quote' => "Let all your things have their places; let each part of your business have its time.",
@@ -202,7 +234,7 @@ class Inspire
         [
             'quote' => "Happiness is not something readymade. It comes from your own actions.",
             'person' => "Dalai Lama",
-            'tags' => ['religious'],
+            'tags' => ['religion'],
         ],
         [
             'quote' => "Do what you can, with what you have, where you are.",
@@ -234,18 +266,16 @@ class Inspire
     public $selection = [];
     public $selected = NULL;
 
-    public function __construct()
-    {
+    public function __construct() {
         $this->selection = Collection::make($this->quotes);
     }
 
     public function have_tag($_tag) {
         $this->selection = $this->selection->filter( fn($_q) => in_array($_tag, $_q['tags']) );
-
         return $this;
     }
 
-    public function pick($_nr = null){
+    public function pick($_nr = null) {
         if($_nr && $_nr > 1)
             $this->selected = $this->selection->random($_nr);
         else 
@@ -266,6 +296,10 @@ class Inspire
         $html = str_replace('\\', '', $html);
 
         return $html;
+    }
+
+    public function length(){
+        return $this->selection->count();
     }
 
     public function get() {
