@@ -1,6 +1,7 @@
+@props([ '_filter' => null, '_count' => 1 ])
+
 @php
-$quotes = new App\Inspire();
-$quote = $quotes->pick();
+$quote = $_filter ? (new App\Inspire())->have_tag($_filter)->pick($_count) : (new App\Inspire())->pick($_count);
 @endphp
 
 @once
@@ -20,6 +21,6 @@ $quote = $quotes->pick();
 </style>
 @endonce
 
-<div data-range='{{ $quote->length() }}' class='quotes ¦ self-center mx-4 text-white'>
+<div data-filter='{{ $_filter }}' data-range='{{$_count}}/{{ $quote->length() }}' {!! $attributes->except('class') !!} class="quotes ¦ {{ $attributes->get('class') }}">
     {!! $quote->quote() !!}
 </div>

@@ -14,6 +14,11 @@ class Inspire
 
     private $quotes = [
         [
+            'quote' => "Use the difficulty",
+            'person' => "Michael Caine",
+            'tags' => ['actor', 'Britisch'],
+        ],        
+        [
             'quote' => "The weight of discipline versus the weight of regret. /n Now, take the discipline, it weighs ounces; the regret weighs tons.",
             'person' => "Jim Rohn",
             'tags' => [],

@@ -6,6 +6,7 @@ $id = $fieldtype.'-'.uniqid();
 $readonly = $attributes->get('readonly') != null;
 @endphp
 
+
 <div>
 
     @if($_label)
@@ -20,7 +21,7 @@ $readonly = $attributes->get('readonly') != null;
     </label>
     @endif
 
-    <envy-formfield @class([ "block"=> !$_icon, "flex"=> $_icon, "mt-1" => $_label, "border rounded-sm shadow-sm", "border-gray-300 dark:border-gray-700", "text-gray-700 dark:text-gray-300", "bg-white dark:bg-gray-900" => !$readonly, "bg-white-200 bg-gray-700" => $readonly ])>
+    <envy-formfield @class([ "block"=> !$_icon && !$_action, "flex"=> $_icon || $_action, "mt-1" => $_label, "border rounded-sm shadow-sm", "border-gray-300 dark:border-gray-700", "text-gray-700 dark:text-gray-300", "bg-white dark:bg-gray-900" => !$readonly, "bg-white-200 bg-gray-700" => $readonly ])>
 
         @if($_icon)
         <span class='cursor-help shrink-0 grid place-content-center ps-3 pe-1 py-2'>
@@ -59,6 +60,11 @@ $readonly = $attributes->get('readonly') != null;
             @case('generate')
             <icon title="{{ __('Generate') }}" class='block size-4'>
                 <x-media.svg source='formfields.svg#redo' />
+            </icon>
+            @break
+            @case('toggle')
+            <icon title="{{ __('Toggle') }}" class='block size-4'>
+                <x-media.svg source='formfields.svg#eye' />
             </icon>
             @break
 
