@@ -3,11 +3,9 @@
         <h2 class="text-lg font-medium text-gray-900 dark:text-gray-100">
             {{ __('Profile Information') }}
         </h2>
-
         <p class="mt-1 text-sm text-gray-600 dark:text-gray-400">
             {{ __("Take a look at your account's profile.") }}
         </p>
-
     </header>
 
     <form id="send-verification" method="post" action="{{ route('verification.send') }}">
@@ -20,11 +18,11 @@
 
         <fieldset class="border border-gray-500 p-6 rounded-lg">
             <legend class="dark:text-gray-500 text-2xl">Login Data</legend>
-
             <div class="space-y-6">
-                <x-form.text-field readonly :value="$user->handle" _icon='unprotected' :_label="__('Handle')" _action='copy' />
-
-                <x-form.text-field name="email" type="email" required :value="old('email',$user->email)" _icon='unprotected' :_label="__('Registered Email')" _action='copy'>
+                {{-- Handle --}}
+                <x-form.text-field readonly :value="$user->handle" _icon=unprotected :_label="__('Handle')" _action=copy />
+                {{-- Email --}}
+                <x-form.text-field name=email type=email required :value="old('email',$user->email)" _icon=unprotected :_label="__('Registered Email')" _action=copy>
                     <x-slot:after_label>
                         @if($user->hasVerifiedEmail())
                         <icon title="Your email has been verified. Good job!" class="cursor-help block size-5 text-green-600 dark:text-green-400">
@@ -57,30 +55,26 @@
 
                     <x-input-error class="mt-2" :messages="$errors->get('email')" />
                 </x-form.text-field>
-
-                <x-form.text-field readonly value="The Password You Choose" _icon='protected' :_label="__('Password')" />
+                {{-- Password --}}
+                <x-form.text-field readonly value="The Password You Choose" _icon=protected :_label="__('Password')" />
             </div>
         </fieldset>
 
         <fieldset class="border border-gray-500 p-6 rounded-lg">
             <legend class="dark:text-gray-500 text-2xl">Personal Data</legend>
-
             <div class="space-y-6">
-                <div>
-                    <x-input-label for="name" :value="__('Name')" />
-                    <x-text-input id="name" name="name" type="text" class="mt-1 block w-full" :value="old('name', $user->name)" required autofocus autocomplete="name" />
+                {{-- Name --}}
+                <x-form.text-field :_label="__('Name')" _icon=unprotected _action=copy name=name :value="old('name', $user->name)" required autocomplete="name">
                     <x-input-error class="mt-2" :messages="$errors->get('name')" />
-                </div>
+                </x-form.text-field>
+                {{-- Profile Picture --}}
+                <x-form.text-field :_label="__('Profile Picture')" _icon=unprotected _action=copy name=profile_picture :value="old('profile_picture', $user->profile_picture)" />
 
-                <div>
-                    <x-input-label for=profile_pic :value="__('Profile Picture')" />
-                    <x-text-input id=profile_pic class="block w-full mt-1" name='profile_picture' :value="old('profile_picture', $user->profile_picture)" />
-                </div>
-
+                <x-media.picture :_source="old('profile_picture', $user->profile_picture)" _placeholder="user.svg#profile" class="size-16 border border-current text-gray-500" title="Your current profile picture" />
             </div>
         </fieldset>
 
-
+        {{-- Submit --}}
         <div class="flex items-center gap-4">
             <x-primary-button>{{ __('Save') }}</x-primary-button>
 
