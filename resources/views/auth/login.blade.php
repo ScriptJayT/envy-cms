@@ -1,5 +1,4 @@
 <x-guest-layout>
-    <x-inspiration _filter='pride' class='text-white' />
 
     <!-- Session Status -->
     <x-auth-session-status class="mb-4" :status="session('status')" />
