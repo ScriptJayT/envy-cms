@@ -6,17 +6,19 @@ use Illuminate\Support\Collection;
 
 class Inspire
 {
-
+    // [
+    //     'quote' => "",
+    //     'person' => "",
+    //     'tags' => [],
+    // ],
 
     private $quotes = [
         [
-
             'quote' => "The weight of discipline versus the weight of regret. /n Now, take the discipline, it weighs ounces; the regret weighs tons.",
             'person' => "Jim Rohn",
             'tags' => [],
         ],
         [
-
             'quote' => "If the \'why\' is powerfull, the \'how\' is easy",
             'person' => "Jim Rohn",
             'tags' => [],

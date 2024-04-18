@@ -1,6 +1,6 @@
 @php
 $quotes = new App\Inspire();
-$quote = $quotes->pick()->quote();
+$quote = $quotes->pick();
 @endphp
 
 @once
@@ -20,6 +20,6 @@ $quote = $quotes->pick()->quote();
 </style>
 @endonce
 
-<div class='quotes ¦ self-center mx-4 text-white'>
-    {!! $quote !!}
+<div data-range='{{ $quote->length() }}' class='quotes ¦ self-center mx-4 text-white'>
+    {!! $quote->quote() !!}
 </div>
