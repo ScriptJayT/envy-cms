@@ -14,6 +14,11 @@ class Inspire
 
     private $quotes = [
         [
+            'quote' => "Trans rights are Human rights.",
+            'person' => "NN",
+            'tags' => ['pride', 'trans'],
+        ],
+        [
             'quote' => "Use the difficulty",
             'person' => "Michael Caine",
             'tags' => ['actor', 'Britisch'],
