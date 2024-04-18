@@ -54,6 +54,56 @@ class Inspire
             'tags' => ['pride', 'enby', 'youtube'],
         ],
         [
+            'quote' => "Trans people are gods.",
+            'person' => "Jace",
+            'tags' => ['pride', 'trans'],
+        ],
+        [
+            'quote' => "Agender people are gods.",
+            'person' => "Jace",
+            'tags' => ['pride', 'trans', 'agender'],
+        ],
+        [
+            'quote' => "Ace people are gods.",
+            'person' => "Jace",
+            'tags' => ['pride', 'ace'],
+        ],
+        [
+            'quote' => "Aro people are gods.",
+            'person' => "Jace",
+            'tags' => ['pride', 'aro'],
+        ],
+        [
+            'quote' => "Gay people are gods.",
+            'person' => "Jace",
+            'tags' => ['pride', 'gay'],
+        ],
+        [
+            'quote' => "Lesbian people are gods.",
+            'person' => "Jace",
+            'tags' => ['pride', 'lesbian'],
+        ],
+        [
+            'quote' => "Bi people are gods.",
+            'person' => "Jace",
+            'tags' => ['pride', 'bi'],
+        ],
+        [
+            'quote' => "Pan people are gods.",
+            'person' => "Jace",
+            'tags' => ['pride', 'pan'],
+        ],
+        [
+            'quote' => "Intersex people are gods.",
+            'person' => "Jace",
+            'tags' => ['pride', 'intersex'],
+        ],
+        [
+            'quote' => "Queer people are gods.",
+            'person' => "Jace",
+            'tags' => ['pride', 'queer'],
+        ],
+        [
             'quote' => "Nonbinary culture is running as far as possible from your AGAB and then approaching it cautiously from the other side.",
             'person' => "NN",
             'tags' => ['pride', 'enby'],
