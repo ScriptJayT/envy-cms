@@ -14,6 +14,16 @@ class Inspire
 
     private $quotes = [
         [
+            'quote' => "You're braver than you believe. \n You're stronger than you seem. \n And you're smarter than you think.",
+            'person' => "Winnie The Pooh",
+            'tags' => [],
+        ],
+        [
+            'quote' => "I always get to where I'm going by walking away from where I've been.",
+            'person' => "Winnie The Pooh",
+            'tags' => [],
+        ],
+        [
             'quote' => "Trans rights are Human rights.",
             'person' => "NN",
             'tags' => ['pride', 'trans'],

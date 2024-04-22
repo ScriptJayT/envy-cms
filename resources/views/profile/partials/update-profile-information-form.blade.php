@@ -69,7 +69,6 @@
                 </x-form.text-field>
                 {{-- Profile Picture --}}
                 <x-form.text-field :_label="__('Profile Picture')" _icon=unprotected _action=copy name=profile_picture :value="old('profile_picture', $user->profile_picture)" />
-
                 <x-media.picture :_source="old('profile_picture', $user->profile_picture)" _placeholder="user.svg#profile" class="size-16 border border-current text-gray-500" title="Your current profile picture" />
             </div>
         </fieldset>
