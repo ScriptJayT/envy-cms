@@ -19,6 +19,11 @@ class Inspire
             'tags' => [],
         ],
         [
+            'quote' => "Ace people are always acing it... 😉",
+            'person' => "Jace",
+            'tags' => ['pride', 'ace'],
+        ],
+        [
             'quote' => "I always get to where I'm going by walking away from where I've been.",
             'person' => "Winnie The Pooh",
             'tags' => [],

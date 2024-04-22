@@ -49,7 +49,7 @@ $readonly = $attributes->get('readonly') != null;
         <input {{ $attributes }} id="{{ $id }}" type="text" @class([ 'block w-full py-2' , 'px-3'=> !$_icon, 'ps-2 pe-3' => $_icon, 'border-0 border-r' , 'border-gray-300 dark:border-gray-700' , 'italic'=>$readonly, 'bg-transparent' ])>
 
         @if($_action)
-        <button type=button class="shrink-0 block px-3 py-2" envy-action="{{ $_action }}">
+        <button is=envy-button type=button class="shrink-0 grid place-content-center px-3 py-2" envy-action="{{ $_action }}">
 
             @switch($_action)
             @case('copy')
