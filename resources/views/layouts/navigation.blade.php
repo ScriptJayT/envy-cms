@@ -15,7 +15,7 @@
                 <x-secondary-button x-data="" x-on:click.prevent="$dispatch('open-modal', 'open-cli')">{{ __('CLI') }} [ ]</x-secondary-button>
                 <x-modal name="open-cli" :show="false" focusable>
                     <div class="p-6">
-                        <x-inspiration />
+                        <x-inspiration class="text-white mb-6" />
                         <x-form.text-field value='search' type=search />
                     </div>
                 </x-modal>
@@ -25,7 +25,7 @@
                 <x-modal name="open-menu" :show="false" focusable>
 
                     <div class="p-6">
-                        <x-inspiration />
+                        <x-inspiration class="text-white mb-6" />
 
                         <ul>
                             <x-nav-link :href="route('dashboard')" :active="request()->routeIs('dashboard')">
