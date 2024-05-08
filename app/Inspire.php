@@ -14,6 +14,11 @@ class Inspire
 
     private $quotes = [
         [
+            'quote' => "Never memorize something you can look up.",
+            'person' => "Albert Einstein",
+            'tags' => ['science', 'code'],
+        ],
+        [
             'quote' => "You're braver than you believe. \n You're stronger than you seem. \n And you're smarter than you think.",
             'person' => "Winnie The Pooh",
             'tags' => [],

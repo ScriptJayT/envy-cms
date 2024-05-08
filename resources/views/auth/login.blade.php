@@ -3,6 +3,14 @@
     <!-- Session Status -->
     <x-auth-session-status class="mb-4" :status="session('status')" />
 
+    @env('local')
+    <div class="space-y-2">
+        <x-login-link email="test@example.com" label="Login as admin" />
+        {{--
+        <x-login-link email="user@spatie.be" label="Login as regular user" /> --}}
+    </div>
+    @endenv
+
     <form method="POST" action="{{ route('login') }}" class="mt-6 space-y-4">
         @csrf
 
@@ -12,7 +20,7 @@
         </x-form.text-field>
 
         <!-- Password -->
-        <x-form.text-field :_label="__('Password')" :_value="old('handle')" _action="toggle" type=password name=password required autocomplete=current-password>
+        <x-form.text-field :_label="__('Password')" :_value="old('password')" _action="toggle" type=password name=password required autocomplete=current-password>
             <x-input-error :messages="$errors->get('password')" class="mt-2" />
         </x-form.text-field>
 
