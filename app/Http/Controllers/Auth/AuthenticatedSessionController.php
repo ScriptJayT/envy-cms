@@ -33,7 +33,7 @@ class AuthenticatedSessionController extends Controller
         // add record
         HistoryPoint::create([
             'user_id'=> auth()->user()->id, 
-            'details'=> 'User logged in.',
+            'details'=> "User logged in from {$request->ip()}.",
         ]);
 
         return redirect()->intended(route('dashboard', absolute: false));

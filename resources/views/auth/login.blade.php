@@ -6,9 +6,12 @@
     @env('local')
     <fieldset class="space-y-2 mb-6 text-white">
         <legend>Login as:</legend>
-        <x-login-link key="1" label="System" />
-        <x-login-link key="2" label="Dev" />
-        <x-login-link key="3" label="Admin" />
+        <div class="flex justify-between gap-x-6">
+            <x-login-link key="1" label="System" />
+            <x-login-link key="2" label="Dev" />
+            <x-login-link key="3" label="Admin" />
+        </div>
+        <small class="block">(these auto-logins will not be registered by History)</small>
     </fieldset>
     <hr>
     @endenv

@@ -56,7 +56,9 @@
                     <x-input-error class="mt-2" :messages="$errors->get('email')" />
                 </x-form.text-field>
                 {{-- Password --}}
+                @if( !$user->isSystem() )
                 <x-form.text-field readonly value="The Password You Choose" _icon=protected :_label="__('Password')" />
+                @endif
             </div>
         </fieldset>
 

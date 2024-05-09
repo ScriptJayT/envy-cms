@@ -1,16 +1,19 @@
 <section>
-    <header>
-        <h2 class="text-lg font-medium text-gray-900 dark:text-gray-100">
+    <header class="flex justify-between gap-2 text-gray-900 dark:text-gray-100">
+        <h2 class="text-lg font-medium">
             {{ __('Your latest Actions') }}
         </h2>
+        <div>
+            Your current IP: <span class="blur-sm hover:blur-none transition"> {{ Request::ip() }} </span>
+        </div>
     </header>
 
-    <div class="mt-6 text-white">
+    <div class="mt-6 text-white space-y-2">
 
         @foreach ( $user->historyPoints as $_action )
-        <li class="{{ $_action->type }}">
+        <li class="{{ $_action->type }} flex justify-between">
             {{ $_action->details }}
-            <time>
+            <time class="italic">
                 {{ $_action->created_at->diffForHumans() }}
             </time>
         </li>
