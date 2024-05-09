@@ -6,6 +6,7 @@
     </header>
 
     <div class="mt-6 text-white">
+
         @foreach ( $user->historyPoints as $_action )
         <li class="{{ $_action->type }}">
             {{ $_action->details }}
@@ -14,5 +15,7 @@
             </time>
         </li>
         @endforeach
+
+        @if( $user->historyPoints->count() < 1 ) <p>No actions registered yet</p> @endif
     </div>
 </section>

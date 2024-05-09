@@ -18,7 +18,7 @@ class DatabaseSeeder extends Seeder
     {
         HistoryPoint::factory()->create([
             'user_id' => 1,
-            'details' => 'Envy Setup',
+            'details' => 'Envy DB Setup',
         ]);
 
         User::factory()->create([

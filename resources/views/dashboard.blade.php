@@ -13,8 +13,28 @@
                 </div>
             </div>
 
+            <div class="mt-6 mb-6 text-white">
+            </div>
+
             <div class="text-white">
-                {{ App\Models\HistoryPoint::all() }}
+                <ol class="columns-2 space-y-8 gap-16 pt-6">
+                    @foreach ( App\Models\HistoryPoint::all() as $_h )
+                    <li class="p-4 pt-0 border-b break-inside-avoid grid grid-cols-3">
+                        <span class="col-span-2">
+                            {{ $_h->type }} message due to an action by:
+                        </span>
+                        <name class="text-purple-600">
+                            {{ $_h->user->name }}
+                        </name>
+                        <span class="text-cyan-300 col-span-2">
+                            {{ $_h->details }}
+                        </span>
+                        <time>
+                            {{ $_h->created_at->diffForHumans() }}
+                        </time>
+                    </li>
+                    @endforeach
+                </ol>
             </div>
 
         </div>

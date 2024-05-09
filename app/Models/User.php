@@ -48,7 +48,7 @@ class User extends Authenticatable implements MustVerifyEmail
         ];
     }
 
-    // getter / setter
+    // getters / setters / relations
     public function getEmailAttribute($value)
     {
         return $value ? decrypt($value, false) : null;

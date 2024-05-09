@@ -2,7 +2,9 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\HistoryPoint;
 use App\Http\Requests\ProfileUpdateRequest;
+
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
@@ -26,13 +28,15 @@ class ProfileController extends Controller
      */
     public function update(ProfileUpdateRequest $request): RedirectResponse
     {
+        // Update
         $request->user()->fill($request->validated());
-
         if ($request->user()->isDirty('email')) {
             $request->user()->email_verified_at = null;
         }
-
         $request->user()->save();
+
+        // History
+        HistoryPoint::addEvent('Profile Updated');
 
         return Redirect::route('profile.edit')->with('status', 'profile-updated');
     }
@@ -48,8 +52,9 @@ class ProfileController extends Controller
 
         $user = $request->user();
 
-        Auth::logout();
+        HistoryPoint::addEvent("Deleted own Profile: {$user->handle}", 'Warning');
 
+        Auth::logout();
         $user->delete();
 
         $request->session()->invalidate();
