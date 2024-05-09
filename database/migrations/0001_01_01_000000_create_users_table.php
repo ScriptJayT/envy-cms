@@ -1,6 +1,8 @@
 <?php
 
 use App\Models\User;
+use App\Enums\MessageType;
+
 use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
@@ -43,7 +45,7 @@ return new class extends Migration
         Schema::create('history_points', function (Blueprint $table) {
             $table->id();
             $table->foreignIdFor(User::class)->nullable()->index();
-            $table->text('type')->default('Info');
+            $table->text('type')->default(MessageType::INFO);
             $table->text('details');
             $table->timestamps();
         });
