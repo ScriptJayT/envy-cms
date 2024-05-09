@@ -22,6 +22,7 @@ class DatabaseSeeder extends Seeder
             'name' => 'System',
             'password' => Hash::make(Str::random(20)),
             'profile_picture' => 'system.svg',
+            'email' => 'jt.scripter+envy@gmail.com',
         ]);
         User::factory()->create([
             'handle' => '@DevJace',
