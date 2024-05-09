@@ -12,6 +12,11 @@
                     {{ __("You're logged in!") }}
                 </div>
             </div>
+
+            <div class="text-white">
+                {{ App\Models\HistoryPoint::all() }}
+            </div>
+
         </div>
     </div>
 </x-app-layout>

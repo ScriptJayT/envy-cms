@@ -1,5 +1,6 @@
 <?php
 
+use App\Models\User;
 use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
@@ -38,6 +39,14 @@ return new class extends Migration
             $table->longText('payload');
             $table->integer('last_activity')->index();
         });
+
+        Schema::create('history_points', function (Blueprint $table) {
+            $table->id();
+            $table->foreignIdFor(User::class)->nullable()->index();
+            $table->text('type')->default('Info');
+            $table->text('details');
+            $table->timestamps();
+        });
     }
 
     /**
@@ -48,5 +57,6 @@ return new class extends Migration
         Schema::dropIfExists('users');
         Schema::dropIfExists('password_reset_tokens');
         Schema::dropIfExists('sessions');
+        Schema::dropIfExists('history_points');
     }
 };

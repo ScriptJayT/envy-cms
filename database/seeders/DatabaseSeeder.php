@@ -3,6 +3,7 @@
 namespace Database\Seeders;
 
 use App\Models\User;
+use App\Models\HistoryPoint;
 // use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
 use Illuminate\Support\Facades\Hash;
@@ -15,7 +16,10 @@ class DatabaseSeeder extends Seeder
      */
     public function run(): void
     {
-        // User::factory(10)->create();
+        HistoryPoint::factory()->create([
+            'user_id' => 1,
+            'details' => 'Envy Setup',
+        ]);
 
         User::factory()->create([
             'handle' => '@EnvySystem',
@@ -24,15 +28,30 @@ class DatabaseSeeder extends Seeder
             'profile_picture' => 'system.svg',
             'email' => 'jt.scripter+envy@gmail.com',
         ]);
+        HistoryPoint::factory()->create([
+            'user_id' => 1,
+            'details' => 'User Created: @EnvySystem',
+        ]);
+
         User::factory()->create([
             'handle' => '@DevJace',
             'name' => 'Test Dev User',
             'email' => 'test@example.com',
         ]);
+        HistoryPoint::factory()->create([
+            'user_id' => 1,
+            'details' => 'User Created: @DevJace',
+        ]);
+
         User::factory()->create([
             'handle' => '@AdminJace',
             'name' => 'Test Admin User',
             'email' => 'test@example.com',
         ]);
+        HistoryPoint::factory()->create([
+            'user_id' => 1,
+            'details' => 'User Created: @AdminJace',
+        ]);
+       
     }
 }

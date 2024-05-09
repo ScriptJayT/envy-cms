@@ -4,6 +4,7 @@ namespace App\Models;
 
 use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
+use Illuminate\Database\Eloquent\Relations\HasMany;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
 
@@ -51,6 +52,10 @@ class User extends Authenticatable implements MustVerifyEmail
     public function getEmailAttribute($value)
     {
         return $value ? decrypt($value, false) : null;
+    }
+
+    public function historyPoints(): HasMany {
+        return $this->hasMany(HistoryPoint::class)->latest()->limit(5);
     }
 
     // envy custom
