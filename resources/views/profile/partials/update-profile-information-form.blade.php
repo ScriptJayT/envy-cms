@@ -22,7 +22,7 @@
                 {{-- Handle --}}
                 <x-form.text-field readonly :value="$user->handle" _icon=unprotected :_label="__('Handle')" _action=copy />
                 {{-- Email --}}
-                <x-form.text-field name=email type=email required :value="old('email',$user->email)" _icon=unprotected :_label="__('Registered Email')" _action=copy>
+                <x-form.text-field name=email type=email required :value="old('email',$user->email)" _icon=protected :_label="__('Registered Email')" _action=copy>
                     <x-slot:after_label>
                         @if($user->hasVerifiedEmail())
                         <icon title="Your email has been verified. Good job!" class="cursor-help block size-5 text-green-600 dark:text-green-400">
