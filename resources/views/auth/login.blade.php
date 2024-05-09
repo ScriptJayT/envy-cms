@@ -4,7 +4,7 @@
     <x-auth-session-status class="mb-4" :status="session('status')" />
 
     @env('local')
-    <fieldset class="space-y-2 mb-6 text-white">
+    <fieldset class="space-y-2 mb-6 text-theme-400">
         <legend>Login as:</legend>
         <div class="flex justify-between gap-x-6">
             <x-login-link key="1" label="System" />

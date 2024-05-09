@@ -1,3 +1,80 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+@layer base {
+    :root {
+
+        &.dark {
+            --envy-txt-0: 0 0% 100%;
+            --envy-txt-2: 0 0% 97%;
+            --envy-txt-4: 0 0% 90%;
+            --envy-txt-6: 0 0% 84%;
+            --envy-txt-8: 0 0% 76%;
+            
+            --envy-bg-0: 0 0% 6.25%;
+            --envy-bg-2: 0 0% 10%;
+            --envy-bg-4: 0 0% 20%;
+            --envy-bg-6: 0 2% 34%;
+            --envy-bg-8: 0 0% 53%;
+        }
+        
+        &.light {
+            --envy-txt-0: 0 0% 10%;
+            --envy-txt-2: 0 0% 18%;
+            --envy-txt-4: 0 0% 25%;
+            --envy-txt-6: 0 2% 34%;
+            --envy-txt-8: 0 0% 53%;
+
+            --envy-bg-0: 0 0% 97.5%;
+            --envy-bg-2: 0 0% 95%;
+            --envy-bg-4: 0 0% 90%;
+            --envy-bg-6: 0 0% 84%;
+            --envy-bg-8: 0 0% 76%;
+        }
+
+        &.envy {
+            --envy-a-2: 129 78% 55%;
+            --envy-a-4: 129 74% 47%; 
+            --envy-a-6: 129 88% 37%;
+            --envy-a-8: 129 85% 24%;
+        }
+        &.sloth {
+            --envy-a-2: 198 78% 53%;
+            --envy-a-4: 198 78% 53%;
+            --envy-a-6: 198 78% 53%;
+            --envy-a-8: 198 78% 53%;
+        }
+        &.lust {
+            --envy-a-2: 245 78% 55%;
+            --envy-a-4: 245 78% 55%;
+            --envy-a-6: 245 78% 55%;
+            --envy-a-8: 245 78% 55%;
+        }
+        &.anger {
+            --envy-a-2: 0 79% 54%;
+            --envy-a-4: 0 79% 54%;
+            --envy-a-6: 0 79% 54%;
+            --envy-a-8: 0 79% 54%;
+        }
+        &.greed {
+            --envy-a-2: 58 82% 55%;
+            --envy-a-4: 58 82% 55%;
+            --envy-a-6: 58 82% 55%;
+            --envy-a-8: 58 82% 55%;
+        }
+        &.gluttony {
+            --envy-a-2: 33 82% 55%;
+            --envy-a-4: 33 82% 55%;
+            --envy-a-6: 33 82% 55%;
+            --envy-a-8: 33 82% 55%;
+        }
+        &.pride {
+            --envy-a-2: 310 73% 51%;
+            --envy-a-4: 310 73% 51%;
+            --envy-a-6: 310 73% 51%;
+            --envy-a-8: 310 73% 51%;
+        }
+
+    }
+}
