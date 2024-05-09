@@ -41,8 +41,20 @@ class User extends Authenticatable implements MustVerifyEmail
     protected function casts(): array
     {
         return [
+            'email' => 'encrypted',
             'email_verified_at' => 'datetime',
             'password' => 'hashed',
         ];
+    }
+
+    // getter / setter
+    public function getEmailAttribute($value)
+    {
+        return $value ? decrypt($value, false) : null;
+    }
+
+    // envy custom
+    public function isSystem() {
+        return "@EnvySystem" === $this->handle;
     }
 }

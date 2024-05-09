@@ -4,11 +4,13 @@
     <x-auth-session-status class="mb-4" :status="session('status')" />
 
     @env('local')
-    <div class="space-y-2">
-        <x-login-link email="test@example.com" label="Login as admin" />
-        {{--
-        <x-login-link email="user@spatie.be" label="Login as regular user" /> --}}
-    </div>
+    <fieldset class="space-y-2 mb-6 text-white">
+        <legend>Login as:</legend>
+        <x-login-link key="1" label="System" />
+        <x-login-link key="2" label="Dev" />
+        <x-login-link key="3" label="Admin" />
+    </fieldset>
+    <hr>
     @endenv
 
     <form method="POST" action="{{ route('login') }}" class="mt-6 space-y-4">
