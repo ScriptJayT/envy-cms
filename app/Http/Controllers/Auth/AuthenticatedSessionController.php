@@ -53,7 +53,7 @@ class AuthenticatedSessionController extends Controller
 
         HistoryPoint::create([
             'user_id'=> $uid, 
-            'details'=> 'User logged out.',
+            'details'=> "User logged out from {$request->ip()}.",
         ]);
 
         return redirect('/');
