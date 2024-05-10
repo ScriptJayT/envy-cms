@@ -21,7 +21,7 @@ $readonly = $attributes->get('readonly') != null;
     </label>
     @endif
 
-    <envy-formfield @class([ "block"=> !$_icon && !$_action, "flex"=> $_icon || $_action, "mt-1" => $_label, "border rounded-sm shadow-sm", "border-invert-400", "text-theme-400", "bg-invert-200" => !$readonly, "bg-invert-400" => $readonly ])>
+    <envy-formfield @class([ "block"=> !$_icon && !$_action, "flex"=> $_icon || $_action, "mt-1" => $_label, "transition border shadow-sm", "border-invert-400 hover:border-invert-600 ring-accent-600", "text-theme-400", "bg-invert-200" => !$readonly, "bg-invert-400" => $readonly ])>
 
         @if($_icon)
         <span class='cursor-help shrink-0 grid place-content-center ps-3 pe-1 py-2'>
@@ -43,17 +43,15 @@ $readonly = $attributes->get('readonly') != null;
             <icon class="block size-4"> {{ $_icon }} </icon>
             @endswitch
         </span>
-
         @endif
 
-        <span class="ring-transparent outline-accent"></span>
-
-        <input {{ $attributes }} id="{{ $id }}" type="text" @class([ 'block w-full py-2' , 'px-3'=> !$_icon, 'ps-2 pe-3' => $_icon, 'border-0 border-r', 'border-invert-400',
-        'focus:ring-accent-800 focus:border-invert-400', 'focus:outline-none',
+        <input {{ $attributes->except('class') }} id="{{ $id }}" type="text" @class([ 'block w-full py-2' , 'px-3'=> !$_icon, 'ps-2 pe-3' => $_icon, 'border-0',
+        'border-r border-r-inherit' => $_action,
+        'focus:ring-2 focus:ring-inherit', 'focus:outline-none focus:border-r-inherit',
         'italic'=>$readonly, 'bg-transparent' ])>
 
         @if($_action)
-        <button is=envy-button type=button class="shrink-0 grid place-content-center px-3 py-2 outline-none focus:ring-accent-200" envy-action="{{ $_action }}">
+        <button is=envy-button type=button class="shrink-0 grid place-content-center px-3 py-2 outline-none focus:ring-2 focus:ring-inherit" envy-action="{{ $_action }}">
 
             @switch($_action)
             @case('copy')
