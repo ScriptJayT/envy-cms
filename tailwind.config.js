@@ -30,6 +30,21 @@ export default {
                 'TSCu_Comic', 'casual', 'cursive'
             ],
         },
+        fontSize: {
+            'xs': 'clamp(0.7rem, 0.7rem + 2vw, 0.875rem)', //14px
+            'sm': 'clamp(0.875rem, 0.875rem + 2vw, 1rem)', //16px
+            'base': 'clamp(1rem, 1rem + 2vw, 1.125rem)', //18px
+            'lg': 'clamp(1.125rem, 1.125rem + 2vw, 1.25rem)', //20px
+            'xl': 'clamp(1.25rem, 1.25rem + 2vw, 1.5rem)', //24px
+            '2xl': 'clamp(1.5rem, 1.5rem + 2vw, 1.875rem)', //30px
+            '3xl': 'clamp(1.875rem, 1.875rem + 2vw, 2.25rem)', //36px
+            '4xl': 'clapm(2.25rem, 2.25rem + 2vw, 2.5rem)', //40px
+            '5xl': '',
+            '6xl': '',
+            '7xl': '',
+            '8xl': '',
+            '9xl': '',
+        },
         extend: {
             colors: {
                 theme: {

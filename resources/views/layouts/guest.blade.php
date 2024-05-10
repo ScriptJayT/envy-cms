@@ -14,7 +14,7 @@
     @vite(['resources/css/app.css', 'resources/js/app.js'])
 </head>
 
-<body class="font-sans antialiased | text-theme-200 bg-invert-0">
+<body class="font-sans text-base antialiased | text-theme-200 bg-invert-0">
     <div class="flex flex-col sm:justify-center items-center pt-6">
         <div class="w-full max-w-md px-6" style="filter: drop-shadow(1px 1px 0 gray);">
             <x-media.gradient-logo />
