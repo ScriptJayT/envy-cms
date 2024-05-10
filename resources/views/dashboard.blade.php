@@ -17,13 +17,13 @@
             </div>
 
             <div class="text-white">
-                <ol class="columns-2 space-y-8 gap-16 pt-6">
+                <ol class="md:columns-2 space-y-8 gap-16 pt-6">
                     @foreach ( App\Models\HistoryPoint::all() as $_h )
-                    <li class="p-4 pt-0 border-b break-inside-avoid grid grid-cols-3">
+                    <li class="p-4 pt-0 border-b break-inside-avoid grid gap-4 grid-cols-3">
                         <span class="col-span-2">
                             {{ $_h->type }} message due to an action by:
                         </span>
-                        <name class="text-purple-600">
+                        <name class="text-purple-600" title="{{ $_h->user->handle }}">
                             {{ $_h->user->name }}
                         </name>
                         <span class="text-cyan-300 col-span-2">
