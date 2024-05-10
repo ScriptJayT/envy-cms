@@ -1,4 +1,4 @@
-<nav x-data="{ open: false }" class="bg-white dark:bg-gray-800 border-b border-gray-100 dark:border-gray-700">
+<nav class="bg-white dark:bg-gray-800 border-b border-gray-100 dark:border-gray-700">
     <!-- Primary Navigation Menu -->
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4">
         <div class="flex justify-between items-center">
@@ -10,7 +10,6 @@
             </div>
 
             <div class="flex items-center gap-4">
-
                 <!-- CLI -->
                 <x-secondary-button x-data="" x-on:click.prevent="$dispatch('open-modal', 'open-cli')">{{ __('CLI') }} [ ]</x-secondary-button>
                 <x-modal name="open-cli" :show="false" focusable>
@@ -23,7 +22,6 @@
                 <!-- Main Menu -->
                 <x-secondary-button x-data="" x-on:click.prevent="$dispatch('open-modal', 'open-menu')">{{ __('Menu') }} [ ]</x-secondary-button>
                 <x-modal name="open-menu" :show="false" focusable>
-
                     <div class="p-6">
                         <x-inspiration class="text-white mb-6" />
 
@@ -33,7 +31,6 @@
                             </x-nav-link>
                         </ul>
                     </div>
-
                 </x-modal>
 
                 <!-- User Menu -->
@@ -69,7 +66,6 @@
                     </x-slot>
                 </x-dropdown>
             </div>
-
         </div>
     </div>
 </nav>
