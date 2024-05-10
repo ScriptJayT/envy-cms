@@ -19,7 +19,7 @@ $_header_height = $_banner ? 'min-h-96' : '';
     @vite(['resources/css/app.css', 'resources/js/app.js'])
 </head>
 
-<body class="font-sans text-base antialiased">
+<body class="font-sans text-base antialiased | text-theme-200 bg-invert-0">
     <site class="block min-h-screen">
 
         <!-- Page Heading -->

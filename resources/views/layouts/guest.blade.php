@@ -15,8 +15,8 @@
 </head>
 
 <body class="font-sans text-base antialiased | text-theme-200 bg-invert-0">
-    <div class="flex flex-col sm:justify-center items-center pt-6">
-        <div class="w-full max-w-md px-6" style="filter: drop-shadow(1px 1px 0 gray);">
+    <site class="min-h-svh flex flex-col gap-8 sm:justify-center items-center py-6">
+        <div class="w-full max-w-md px-6" style="filter:drop-shadow(1px 3px hsl(var(--envy-a-8)));">
             <x-media.gradient-logo />
         </div>
 
@@ -24,10 +24,10 @@
             {{ $slot }}
         </div>
 
-        <div class="w-full max-w-md px-6 mt-8">
+        <div class="w-full max-w-lg px-6 min-h-24">
             <x-inspiration _filter='pride' />
         </div>
-    </div>
+    </site>
 </body>
 
 </html>
