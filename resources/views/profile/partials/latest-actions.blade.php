@@ -1,11 +1,8 @@
 <section>
-    <header class="flex justify-between gap-2 text-gray-900 dark:text-gray-100">
+    <header class="text-gray-900 dark:text-gray-100">
         <h2 class="text-lg font-medium">
             {{ __('Your latest Actions') }}
         </h2>
-        <div>
-            Your current IP: <span class="blur-sm hover:blur-none transition"> {{ Request::ip() }} </span>
-        </div>
     </header>
 
     <div class="mt-6 text-white space-y-2">
