@@ -23,8 +23,8 @@
 
     <div class="py-12">
         <div class="max-w-screen-2xl mx-auto sm:px-6 lg:px-8">
-            <ol class="md:columns-2 lg:columns-3 space-y-8 gap-16 pt-6">
-                @foreach ( App\Models\HistoryPoint::with('user')->get() as $_h )
+            <ol class="md:columns-2 lg:columns-3 space-y-8 gap-28 pt-6">
+                @foreach ( App\Models\HistoryPoint::with('user')->latest()->get() as $_h )
                 <li class="p-4 pt-0 border-b break-inside-avoid grid gap-4 grid-cols-3">
                     <span class="col-span-2">
                         {{ $_h->type }} message due to an action by:
