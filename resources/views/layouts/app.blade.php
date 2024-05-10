@@ -1,3 +1,9 @@
+@props(['_banner' => null])
+
+@php
+$_header_height = $_banner ? 'min-h-96' : '';
+@endphp
+
 <!DOCTYPE html>
 <html class='envy dark' lang="{{ str_replace('_', '-', app()->getLocale()) }}">
 
@@ -14,23 +20,36 @@
 </head>
 
 <body class="font-sans antialiased">
-    <div class="min-h-screen bg-gray-100 dark:bg-gray-900">
-        @include('layouts.navigation')
+    <site class="block min-h-screen">
 
         <!-- Page Heading -->
-        @if (isset($header))
-        <header class="bg-white dark:bg-gray-800 shadow">
-            <div class="max-w-7xl mx-auto py-6 px-4 sm:px-6 lg:px-8">
+        <header class="relative isolate | flex flex-col {{ $_header_height }} | border-b border-invert-400">
+            @include('layouts.navigation')
+
+            @if( $_banner ?? false )
+            <img class="pointer-events-none select-none | absolute inset-0 -z-10 | w-full h-full object-cover object-top" src="{{ asset('media/banners/'.$_banner) }}" alt="" aria-hidden>
+            @endif
+
+            @if( isset($header) )
+            <div class="w-full max-w-7xl m-auto py-6 px-4 sm:px-6 lg:px-8">
                 {{ $header }}
             </div>
+            @endif
         </header>
-        @endif
 
         <!-- Page Content -->
         <main>
             {{ $slot }}
         </main>
-    </div>
+
+        @if (isset($footer))
+        <footer class="border-t border-invert-400">
+            <div class="max-w-7xl mx-auto py-6 px-4 sm:px-6 lg:px-8">
+                {{ $footer }}
+            </div>
+        </footer>
+        @endif
+    </site>
 </body>
 
 </html>
