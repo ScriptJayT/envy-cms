@@ -29,7 +29,7 @@
                         <span class="text-cyan-300 col-span-2">
                             {{ $_h->details }}
                         </span>
-                        <time>
+                        <time title="(Y-m-d) {{ $_h->created_at }}">
                             {{ $_h->created_at->diffForHumans() }}
                         </time>
                     </li>
