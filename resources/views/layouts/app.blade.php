@@ -5,7 +5,7 @@ $_header_height = $_banner ? 'min-h-96' : '';
 @endphp
 
 <!DOCTYPE html>
-<html class='envy dark' lang="{{ str_replace('_', '-', app()->getLocale()) }}">
+<html class='pride dark' lang="{{ str_replace('_', '-', app()->getLocale()) }}">
 
 <head>
     <meta charset="utf-8">
@@ -19,7 +19,7 @@ $_header_height = $_banner ? 'min-h-96' : '';
     @vite(['resources/css/app.css', 'resources/js/app.js'])
 </head>
 
-<body class="font-sans antialiased">
+<body class="font-sans text-base antialiased">
     <site class="block min-h-screen">
 
         <!-- Page Heading -->
@@ -44,7 +44,7 @@ $_header_height = $_banner ? 'min-h-96' : '';
 
         @if (isset($footer))
         <footer class="border-t border-invert-400">
-            <div class="max-w-7xl mx-auto py-6 px-4 sm:px-6 lg:px-8">
+            <div class="max-w-screen-2xl mx-auto py-6 px-4 sm:px-6 lg:px-8">
                 {{ $footer }}
             </div>
         </footer>

@@ -1,11 +1,11 @@
 <nav class="w-full border-b border-invert-400 | bg-gray-50/5 backdrop-blur-xl">
     <!-- Primary Navigation Menu -->
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4">
+    <div class="max-w-screen-2xl mx-auto px-4 sm:px-6 lg:px-8 py-4">
         <div class="flex justify-between items-center">
             <!-- Logo -->
             <div class="shrink-0">
                 <a href="{{ route('home') }}">
-                    <x-application-logo class="block h-5 w-auto text-accent-600" />
+                    <x-application-logo class="block h-6 w-auto text-accent-400" />
                 </a>
             </div>
 
