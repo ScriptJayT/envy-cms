@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html class='pride dark' lang="{{ str_replace('_', '-', app()->getLocale()) }}">
+<html class='envy dark' lang="{{ str_replace('_', '-', app()->getLocale()) }}">
 
 <head>
     <meta charset="utf-8">

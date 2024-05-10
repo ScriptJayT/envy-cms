@@ -6,6 +6,8 @@
     :root {
 
         &.dark {
+            color-scheme: dark;
+
             --envy-txt-0: 0 0% 100%;
             --envy-txt-2: 0 0% 97%;
             --envy-txt-4: 0 0% 90%;
@@ -20,6 +22,8 @@
         }
         
         &.light {
+            color-scheme: light;
+
             --envy-txt-0: 0 0% 10%;
             --envy-txt-2: 0 0% 18%;
             --envy-txt-4: 0 0% 25%;
@@ -70,10 +74,10 @@
             --envy-a-8: 33 82% 55%;
         }
         &.pride {
-            --envy-a-2: 310 73% 51%;
-            --envy-a-4: 310 73% 51%;
-            --envy-a-6: 310 73% 51%;
-            --envy-a-8: 310 73% 51%;
+            --envy-a-2: 310 73% 51%; /*#DE27C1*/
+            --envy-a-4: 310 75% 44%; /*#C51CAA*/
+            --envy-a-6: 310 75% 36%; /*#A1178B*/
+            --envy-a-8: 310 76% 27%; /*#7B116A*/
         }
 
     }

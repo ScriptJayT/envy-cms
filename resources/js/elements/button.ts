@@ -41,7 +41,8 @@ export class EnvyButton extends HTMLButtonElement {
             else 
                 console.log(`Unhandled Eventlistener for <<${this.#identifier}>>`);
 
-            const new_state = states.indexOf(current_state)+1 % states.length;
+            const new_state = (states.indexOf(current_state) + 1) % states.length;
+            
             this.#target.type = states[new_state];
         }
         this.#copy_content = () => {};

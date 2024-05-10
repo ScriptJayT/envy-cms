@@ -10,7 +10,7 @@ $readonly = $attributes->get('readonly') != null;
 <div>
 
     @if($_label)
-    <label @class(["flex items-center gap-2 w-fit", "font-medium text-sm" , "text-gray-700 dark:text-gray-300" ]) for="{{ $id }}">
+    <label @class(["flex items-center gap-2 w-fit", "font-medium text-sm" ]) for="{{ $id }}">
         <span class="block">
             {{ $_label }}
         </span>
@@ -21,7 +21,7 @@ $readonly = $attributes->get('readonly') != null;
     </label>
     @endif
 
-    <envy-formfield @class([ "block"=> !$_icon && !$_action, "flex"=> $_icon || $_action, "mt-1" => $_label, "border rounded-sm shadow-sm", "border-gray-300 dark:border-gray-700", "text-gray-700 dark:text-gray-300", "bg-white dark:bg-gray-900" => !$readonly, "bg-white-200 bg-gray-700" => $readonly ])>
+    <envy-formfield @class([ "block"=> !$_icon && !$_action, "flex"=> $_icon || $_action, "mt-1" => $_label, "border rounded-sm shadow-sm", "border-invert-400", "text-theme-400", "bg-invert-200" => !$readonly, "bg-invert-400" => $readonly ])>
 
         @if($_icon)
         <span class='cursor-help shrink-0 grid place-content-center ps-3 pe-1 py-2'>
@@ -46,10 +46,14 @@ $readonly = $attributes->get('readonly') != null;
 
         @endif
 
-        <input {{ $attributes }} id="{{ $id }}" type="text" @class([ 'block w-full py-2' , 'px-3'=> !$_icon, 'ps-2 pe-3' => $_icon, 'border-0 border-r' , 'border-gray-300 dark:border-gray-700' , 'italic'=>$readonly, 'bg-transparent' ])>
+        <span class="ring-transparent outline-accent"></span>
+
+        <input {{ $attributes }} id="{{ $id }}" type="text" @class([ 'block w-full py-2' , 'px-3'=> !$_icon, 'ps-2 pe-3' => $_icon, 'border-0 border-r', 'border-invert-400',
+        'focus:ring-accent-800 focus:border-invert-400', 'focus:outline-none',
+        'italic'=>$readonly, 'bg-transparent' ])>
 
         @if($_action)
-        <button is=envy-button type=button class="shrink-0 grid place-content-center px-3 py-2" envy-action="{{ $_action }}">
+        <button is=envy-button type=button class="shrink-0 grid place-content-center px-3 py-2 outline-none focus:ring-accent-200" envy-action="{{ $_action }}">
 
             @switch($_action)
             @case('copy')
