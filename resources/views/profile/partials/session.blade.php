@@ -2,7 +2,7 @@
 $_ip = request()->ip();
 $_os = trim(request()->header('sec-ch-ua-platform'), '"');
 $_b = explode(',', request()->header('sec-ch-ua'));
-$_ua = str_replace(') ', ')<br>',request()->header('user-agent'));
+$_ua = str_replace(') ', ')<br>', request()->header('user-agent'));
 
 $_r = fn($_v) => explode(';', str_replace('"', '', $_v));
 
