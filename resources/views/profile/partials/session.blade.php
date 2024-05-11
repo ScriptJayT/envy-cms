@@ -7,7 +7,6 @@ $_ua = str_replace(') ', ')<br>', request()->header('user-agent'));
 $_r = fn($_v) => explode(';', str_replace('"', '', $_v));
 
 [$_browser, $_browser_v] = $_r( $_b[0] );
-[$_js_engine, $_js_engine_v] = $_r( $_b[1] );
 [$_engine, $_engine_v] = $_r( $_b[2] );
 @endphp
 
@@ -22,10 +21,8 @@ $_r = fn($_v) => explode(';', str_replace('"', '', $_v));
         <value>{{ $_ip }}</value>
         <key>Your current Browser:</key>
         <value>{{ $_browser }} {{ $_browser_v }}</value>
-        <key class="pl-6">Browser Engine:</key>
+        <key class="pl-6">Engine:</key>
         <value class="pl-6">{{ $_engine }} {{ $_engine_v }}</value>
-        <key class="pl-6">JavaScript Engine:</key>
-        <value class="pl-6">{{ $_js_engine }} {{ $_js_engine_v }}</value>
         <key>Your current OS:</key>
         <value>{{ $_os }}</value>
         <key>Full User Agent:</key>
