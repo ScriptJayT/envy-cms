@@ -63,10 +63,10 @@
         </fieldset>
 
         <fieldset class="border border-gray-500 p-6 rounded-lg">
-            <legend class="dark:text-gray-500 text-2xl">Personal Data</legend>
+            <legend class="text-gray-500 text-2xl">Personal Data</legend>
             <div class="space-y-6">
                 {{-- Name --}}
-                <x-form.text-field :_label="__('Name')" _icon=unprotected _action=copy name=name :value="old('name', $user->name)" required autocomplete="name">
+                <x-form.text-field :_label="__('Name')" _icon=protected _action=copy name=name :value="old('name', $user->name)" required autocomplete="name">
                     <x-input-error class="mt-2" :messages="$errors->get('name')" />
                 </x-form.text-field>
                 {{-- Profile Picture --}}

@@ -42,6 +42,7 @@ class User extends Authenticatable implements MustVerifyEmail
     protected function casts(): array
     {
         return [
+            'name' => 'encrypted',
             'email' => 'encrypted',
             'email_verified_at' => 'datetime',
             'password' => 'hashed',
@@ -50,6 +51,10 @@ class User extends Authenticatable implements MustVerifyEmail
 
     // getters / setters / relations
     public function getEmailAttribute($value)
+    {
+        return $value ? decrypt($value, false) : null;
+    }
+    public function getNameAttribute($value)
     {
         return $value ? decrypt($value, false) : null;
     }
