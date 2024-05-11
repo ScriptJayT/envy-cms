@@ -17,7 +17,7 @@
         @method('patch')
 
         <fieldset class="border border-gray-500 p-6 rounded-lg">
-            <legend class="dark:text-gray-500 text-2xl">Login Data</legend>
+            <legend class="select-none text-gray-500 text-2xl">Login Data</legend>
             <div class="space-y-6">
                 {{-- Handle --}}
                 <x-form.text-field readonly :value="$user->handle" _icon=unprotected :_label="__('Handle')" _action=copy />
@@ -37,10 +37,10 @@
 
                     @if ($user instanceof \Illuminate\Contracts\Auth\MustVerifyEmail && ! $user->hasVerifiedEmail())
                     <div>
-                        <p class="text-sm mt-2 text-gray-800 dark:text-gray-200">
+                        <p class="text-sm mt-2 text-gray-200">
                             {{ __('Your email address is unverified.') }}
 
-                            <button form="send-verification" class="underline text-sm text-gray-600 dark:text-gray-400 hover:text-gray-900 dark:hover:text-gray-100 rounded-md focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500 dark:focus:ring-offset-gray-800">
+                            <button form="send-verification" class="underline text-sm text-gray-600 hover:text-gray-100 rounded-md focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500">
                                 {{ __('Click here to re-send the verification email.') }}
                             </button>
                         </p>
@@ -63,7 +63,7 @@
         </fieldset>
 
         <fieldset class="border border-gray-500 p-6 rounded-lg">
-            <legend class="text-gray-500 text-2xl">Personal Data</legend>
+            <legend class="select-none text-gray-500 text-2xl">Personal Data</legend>
             <div class="space-y-6">
                 {{-- Name --}}
                 <x-form.text-field :_label="__('Name')" _icon=protected _action=copy name=name :value="old('name', $user->name)" required autocomplete="name">
@@ -80,7 +80,7 @@
             <x-primary-button>{{ __('Save') }}</x-primary-button>
 
             @if (session('status') === 'profile-updated')
-            <p x-data="{ show: true }" x-show="show" x-transition x-init="setTimeout(() => show = false, 2000)" class="text-sm text-gray-600 dark:text-gray-400">{{ __('Saved.') }}</p>
+            <p class="text-sm text-gray-600">{{ __('Saved.') }}</p>
             @endif
         </div>
     </form>
