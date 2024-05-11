@@ -9,9 +9,7 @@ $_r = fn($_v) => explode(';', str_replace('"', '', $_v));
 [$_browser, $_browser_v] = $_r( $_b[0] );
 [$_js_engine, $_js_engine_v] = $_r( $_b[1] );
 [$_engine, $_engine_v] = $_r( $_b[2] );
-
 @endphp
-
 
 <section>
     <header>
