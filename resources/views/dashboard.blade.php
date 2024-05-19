@@ -4,19 +4,13 @@
         <p class="text-lg font-light text-white"> {{ __("Let's see what we are doing today")}} </p>
         <ul class="flex gap-4 mt-6">
             <li>
-                <x-primary-button>
-                    New Block
-                </x-primary-button>
+                New Block
             </li>
             <li>
-                <x-secondary-button>
-                    Visit the Site [G]
-                </x-secondary-button>
+                Visit the Site [G]
             </li>
             <li>
-                <x-secondary-button>
-                    Take a Backup
-                </x-secondary-button>
+                Take a Backup
             </li>
         </ul>
     </x-slot>

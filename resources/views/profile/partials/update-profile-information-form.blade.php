@@ -77,7 +77,7 @@
 
         {{-- Submit --}}
         <div class="flex items-center gap-4">
-            <x-primary-button>{{ __('Save') }}</x-primary-button>
+            <x-actions.primary type="submit">{{ __('Save') }}</x-actions.primary>
 
             @if (session('status') === 'profile-updated')
             <p class="text-sm text-gray-600">{{ __('Saved.') }}</p>
