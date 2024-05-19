@@ -13,7 +13,7 @@ $classes = ($active ?? false)
 
 <li>
     <a {{ $attributes->merge(['class' => $classes, 'href' => $ref, 'aria-current' => $aria]) }}>
-        {{ $slot ?? '' }}
+        {{ $slot }}
         {{ $_label }}
     </a>
 </li>
