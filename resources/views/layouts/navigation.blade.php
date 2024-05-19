@@ -26,9 +26,7 @@
                         <x-inspiration class="text-white mb-6" />
 
                         <ul>
-                            <x-nav-link :href="route('dashboard')" :active="request()->routeIs('dashboard')">
-                                {{ __('Dashboard') }}
-                            </x-nav-link>
+                            <x-nav-link _to_route='dashboard' _label="{{ __('Dashboard') }}" />
                         </ul>
                     </div>
                 </x-modal>
