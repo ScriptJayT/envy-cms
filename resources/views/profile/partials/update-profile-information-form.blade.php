@@ -53,7 +53,7 @@
                     </p>
                     @endif
 
-                    <x-input-error class="mt-2" :messages="$errors->get('email')" />
+                    <x-form.error class="mt-2" :messages="$errors->get('email')" />
                 </x-form.text-field>
                 {{-- Password --}}
                 @if( !$user->isSystem() )
@@ -67,7 +67,7 @@
             <div class="space-y-6">
                 {{-- Name --}}
                 <x-form.text-field :_label="__('Name')" _icon=protected _action=copy name=name :value="old('name', $user->name)" required autocomplete="name">
-                    <x-input-error class="mt-2" :messages="$errors->get('name')" />
+                    <x-form.error class="mt-2" :messages="$errors->get('name')" />
                 </x-form.text-field>
                 {{-- Profile Picture --}}
                 <x-form.text-field :_label="__('Profile Picture')" _icon=unprotected _action=copy name=profile_picture :value="old('profile_picture', $user->profile_picture)" />

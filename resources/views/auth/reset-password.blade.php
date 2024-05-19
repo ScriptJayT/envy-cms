@@ -7,17 +7,17 @@
 
         <!-- Email Address -->
         <x-form.text-field :_label="__('Email')" type="email" name="email" :value="old('email', $request->email)" required autofocus autocomplete="username">
-            <x-input-error :messages="$errors->get('email')" class="mt-2" />
+            <x-form.error :messages="$errors->get('email')" class="mt-2" />
         </x-form.text-field>
 
         <!-- Password -->
         <x-form.text-field :_label="__('Password')" type="password" name="password" required autocomplete="new-password">
-            <x-input-error :messages="$errors->get('password')" class="mt-2" />
+            <x-form.error :messages="$errors->get('password')" class="mt-2" />
         </x-form.text-field>
 
         <!-- Confirm Password -->
         <x-form.text-field :_label="__('Confirm Password')" type="password" name="password_confirmation" required autocomplete="new-password">
-            <x-input-error :messages="$errors->get('password_confirmation')" class="mt-2" />
+            <x-form.error :messages="$errors->get('password_confirmation')" class="mt-2" />
         </x-form.text-field>
 
         <div class="flex items-center justify-end mt-4">

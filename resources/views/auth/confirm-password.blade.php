@@ -8,7 +8,7 @@
 
         <!-- Password -->
         <x-form.text-field :value="__('Password')" type="password" name="password" required autocomplete="current-password">
-            <x-input-error :messages="$errors->get('password')" class="mt-2" />
+            <x-form.error :messages="$errors->get('password')" class="mt-2" />
         </x-form.text-field>
 
         <div class="flex justify-end mt-4">

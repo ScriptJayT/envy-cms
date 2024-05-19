@@ -21,12 +21,12 @@
 
         <!-- Handle -->
         <x-form.text-field :_label="__('Login Handle')" :_value="old('handle')" name=handle required autofocus autocomplete=username>
-            <x-input-error :messages="$errors->get('handle')" class="mt-2" />
+            <x-form.error :messages="$errors->get('handle')" class="mt-2" />
         </x-form.text-field>
 
         <!-- Password -->
         <x-form.text-field :_label="__('Password')" :_value="old('password')" _action="toggle" type=password name=password required autocomplete=current-password>
-            <x-input-error :messages="$errors->get('password')" class="mt-2" />
+            <x-form.error :messages="$errors->get('password')" class="mt-2" />
         </x-form.text-field>
 
         <!-- Submit -->

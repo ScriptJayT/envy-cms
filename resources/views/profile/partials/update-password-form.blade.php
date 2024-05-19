@@ -13,15 +13,15 @@
         @method('put')
 
         <x-form.text-field :_label="__('Current Password')" _action=toggle name=current_password type=password autocomplete="current-password">
-            <x-input-error :messages="$errors->updatePassword->get('current_password')" class="mt-2" />
+            <x-form.error :messages="$errors->updatePassword->get('current_password')" class="mt-2" />
         </x-form.text-field>
 
         <x-form.text-field :_label="__('New Password')" _action=toggle name=password type=password autocomplete="new-password">
-            <x-input-error :messages="$errors->updatePassword->get('password')" class="mt-2" />
+            <x-form.error :messages="$errors->updatePassword->get('password')" class="mt-2" />
         </x-form.text-field>
 
         <x-form.text-field :_label="__('Confirm Password')" _action=toggle name=password_confirmation type=password autocomplete="new-password">
-            <x-input-error :messages="$errors->updatePassword->get('password_confirmation')" class="mt-2" />
+            <x-form.error :messages="$errors->updatePassword->get('password_confirmation')" class="mt-2" />
         </x-form.text-field>
 
         <div class="flex items-center gap-4">

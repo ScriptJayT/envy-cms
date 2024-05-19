@@ -11,7 +11,7 @@
 
         <!-- Email Address -->
         <x-form.text-field :_label="__('Email')" type="email" name="email" :value="old('email')" required autofocus>
-            <x-input-error :messages="$errors->get('email')" class="mt-2" />
+            <x-form.error :messages="$errors->get('email')" class="mt-2" />
         </x-form.text-field>
 
         <div class="flex items-center justify-end mt-4">

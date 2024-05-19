@@ -25,7 +25,7 @@
             </p>
 
             <x-form.text-field _label="{{ __('Password') }}" name="password" type="password">
-                <x-input-error :messages="$errors->userDeletion->get('password')" class="mt-2" />
+                <x-form.error :messages="$errors->userDeletion->get('password')" class="mt-2" />
             </x-form.text-field>
 
             <div class="mt-6 flex justify-end">
