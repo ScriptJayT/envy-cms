@@ -11,7 +11,7 @@
 
             <div class="flex items-center gap-4">
                 <!-- CLI -->
-                <x-secondary-button x-data="" x-on:click.prevent="$dispatch('open-modal', 'open-cli')">{{ __('CLI') }} [ ]</x-secondary-button>
+                <x-actions.ghost x-data="" x-on:click.prevent="$dispatch('open-modal', 'open-cli')">{{ __('CLI') }} [C]</x-actions.ghost>
                 <x-modal name="open-cli" :show="false" focusable>
                     <div class="p-6">
                         <x-inspiration class="text-white mb-6" />
@@ -20,7 +20,7 @@
                 </x-modal>
 
                 <!-- Main Menu -->
-                <x-secondary-button x-data="" x-on:click.prevent="$dispatch('open-modal', 'open-menu')">{{ __('Menu') }} [ ]</x-secondary-button>
+                <x-actions.ghost x-data="" x-on:click.prevent="$dispatch('open-modal', 'open-menu')">{{ __('Menu') }} [N]</x-actions.ghost>
                 <x-modal name="open-menu" :show="false" focusable>
                     <div class="p-6">
                         <x-inspiration class="text-white mb-6" />
@@ -36,17 +36,17 @@
                 <!-- User Menu -->
                 <x-dropdown align="right" width="48">
                     <x-slot name="trigger">
-                        <x-secondary-button class="flex items-center gap-2">
+                        <x-actions.ghost class="flex items-center gap-2">
                             <x-media.picture :_source="Auth::user()->profile_picture" _placeholder="user.svg#profile" class="size-4 text-gray-500" aria-hidden />
 
-                            <div>{{ Auth::user()->name }} [ ]</div>
+                            <div>{{ Auth::user()->name }} [P]</div>
 
                             <div class="ms-1">
                                 <svg class="fill-current h-4 w-4" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20">
                                     <path fill-rule="evenodd" d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z" clip-rule="evenodd" />
                                 </svg>
                             </div>
-                        </x-secondary-button>
+                        </x-actions.ghost>
                     </x-slot>
 
                     <x-slot name="content">

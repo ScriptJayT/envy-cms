@@ -31,7 +31,7 @@
 
         <!-- Submit -->
         <div class="flex items-center justify-end">
-            <x-actions.primary type="submit" class="ms-3">{{ __('Log in') }}</x-actions.primary>
+            <x-actions.primary type="submit">{{ __('Log in') }}</x-actions.primary>
         </div>
 
         @if (Route::has('password.request'))
