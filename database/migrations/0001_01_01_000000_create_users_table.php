@@ -45,7 +45,7 @@ return new class extends Migration
         Schema::create('history_points', function (Blueprint $table) {
             $table->id();
             $table->foreignIdFor(User::class)
-                ->nullable()->index()
+                ->nullable()
                 ->constrained()->nullOnDelete();
             $table->text('type')->default(MessageType::INFO);
             $table->text('details');
