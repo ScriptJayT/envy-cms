@@ -15,8 +15,8 @@
         <fieldset class="border border-gray-500 p-6 rounded-lg">
             <legend class="select-none text-gray-500 text-2xl">Theme</legend>
             <div class="space-y-6">
-                <x-form.text-field _label="Main Theme (bg)" :value="$user->settings->firstWhere('name', 'prefered-theme')->value" />
-                <x-form.text-field _label="Accent Theme (accent)" :value="$user->settings->firstWhere('name', 'accent-theme')->value" />
+                <x-form.text-field _label="Main Theme (bg)" :value="$user->settings->firstWhere('name', 'prefered-theme')?->value ?? 'dark'" />
+                <x-form.text-field _label="Accent Theme (accent)" :value="$user->settings->firstWhere('name', 'accent-theme')?->value ?? 'envy'" />
             </div>
         </fieldset>
 
@@ -24,11 +24,9 @@
             <legend class="select-none text-gray-500 text-2xl">Accessebility</legend>
             <div class="space-y-6">
                 <x-form.text-field _label="Screen Reader" :value="$user->settings->firstWhere('name', 'screen-reader')?->value ?? 'none'" />
+                <x-form.text-field _label="Motion & Animations" :value="$user->settings->firstWhere('name', 'animations')?->value ?? 'none'" />
             </div>
         </fieldset>
-
-
-        <fieldset></fieldset>
 
         {{-- Submit --}}
         <div class="flex items-center gap-4">

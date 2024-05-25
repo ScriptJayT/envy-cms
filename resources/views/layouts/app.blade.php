@@ -2,10 +2,13 @@
 
 @php
 $_header_height = $_banner ? 'min-h-96' : '';
+
+$_theme = auth()->user()->settings->firstWhere('name', 'prefered-theme')?->value ?? 'dark';
+$_accent = auth()->user()->settings->firstWhere('name', 'accent-theme')?->value ?? 'envy';
 @endphp
 
 <!DOCTYPE html>
-<html class='pride dark' lang="{{ str_replace('_', '-', app()->getLocale()) }}">
+<html class="{{ $_accent }} {{ $_theme }}" lang="{{ str_replace('_', '-', app()->getLocale()) }}">
 
 <head>
     <meta charset="utf-8">

@@ -25,6 +25,7 @@ class DatabaseSeeder extends Seeder
         $setting_t = UserSetting::factory()->create(['name' => "prefered-theme"]);
         $setting_a = UserSetting::factory()->create(['name' => "accent-theme"]);
         UserSetting::factory()->create(['name' => "screen-reader"]);
+        UserSetting::factory()->create(['name' => "animations"]);
 
         User::factory()->create([
             'handle' => '@EnvySystem',
