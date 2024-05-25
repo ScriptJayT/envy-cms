@@ -3,6 +3,7 @@
 namespace Database\Seeders;
 
 use App\Models\User;
+use App\Models\UserSetting;
 use App\Models\HistoryPoint;
 // use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
@@ -18,8 +19,12 @@ class DatabaseSeeder extends Seeder
     {
         HistoryPoint::factory()->create([
             'user_id' => 1,
-            'details' => 'Envy DB Setup',
+            'details' => 'Envy Init',
         ]);
+
+        $setting_t = UserSetting::factory()->create(['name' => "prefered-theme"]);
+        $setting_a = UserSetting::factory()->create(['name' => "accent-theme"]);
+        UserSetting::factory()->create(['name' => "screen-reader"]);
 
         User::factory()->create([
             'handle' => '@EnvySystem',
@@ -28,21 +33,13 @@ class DatabaseSeeder extends Seeder
             'profile_picture' => 'system.svg',
             'email' => 'jt.scripter+envy@gmail.com',
         ]);
-        HistoryPoint::factory()->create([
-            'user_id' => 1,
-            'details' => 'User Created: @EnvySystem',
-        ]);
-
-        User::factory()->create([
+        $dev = User::factory()->create([
             'handle' => '@DevJace',
             'name' => 'Test Dev User',
             'email' => 'test@example.com',
         ]);
-        HistoryPoint::factory()->create([
-            'user_id' => 1,
-            'details' => 'User Created: @DevJace',
-        ]);
-
+        $dev->userSettings()->attach($setting_t->id, ['value' => 'dark', 'created_at' => now(), 'updated_at' => now()]);
+        $dev->userSettings()->attach($setting_a->id, ['value' => 'pride', 'created_at' => now(), 'updated_at' => now()]);
         User::factory()->create([
             'handle' => '@AdminJace',
             'name' => 'Test Admin User',
@@ -50,8 +47,7 @@ class DatabaseSeeder extends Seeder
         ]);
         HistoryPoint::factory()->create([
             'user_id' => 1,
-            'details' => 'User Created: @AdminJace',
+            'details' => 'System Users Created: @EnvySystem, @DevJace, @AdminJace',
         ]);
-       
     }
 }
