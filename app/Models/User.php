@@ -64,8 +64,8 @@ class User extends Authenticatable implements MustVerifyEmail
         return $this->hasMany(HistoryPoint::class)->latest()->limit(5);
     }
 
-    public function userSettings(): BelongsToMany {
-        return $this->belongsToMany(UserSetting::class);
+    public function settings(): BelongsToMany {
+        return $this->belongsToMany(UserSetting::class)->withPivot('value');
     }
 
     // envy custom

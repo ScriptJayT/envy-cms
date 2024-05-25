@@ -13,4 +13,8 @@ class UserSetting extends Model
     public function users(): BelongsToMany {
         return $this->belongsToMany(User::class);
     }
+
+    public function getValueAttribute() {
+        return $this->pivot->value;
+    }
 }
