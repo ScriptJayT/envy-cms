@@ -3,8 +3,11 @@ import { $query } from '../helpers';
 export class EnvyButton extends HTMLButtonElement {
     static counter: number = 0;
     
+    // input fns
     #toggle_type;
     #copy_content;
+    #generate_content;
+    // dialog fns
     #open_dialog;
     #close_dialog;
 
@@ -105,14 +108,20 @@ export class EnvyButton extends HTMLButtonElement {
     #setup(): void {
         console.log('valid action found...');
 
-        if( this.#action_type === 'copy' ) {
-            console.log('copy button detected');
-            this.#setup_copy();
-        }
-        else if( this.#action_type === 'toggle-input' ) {
+        // inputs
+        if( this.#action_type === 'toggle-input' ) {
             console.log('toggle button detected');
             this.#setup_toggle();
         }
+        // else if( this.#action_type === 'generate' ) {
+        //     console.log('generate button detected');
+        //     this.#setup_generate();
+        // }
+        // else if( this.#action_type === 'copy' ) {
+        //     console.log('copy button detected');
+        //     this.#setup_copy();
+        // }
+        // dialogs
         else if( this.#action_type === 'open-dialog' ) {
             console.log('open dialog button detected');
             this.#setup_dialog();
@@ -122,10 +131,14 @@ export class EnvyButton extends HTMLButtonElement {
             this.#setup_dialog(true);
         }
         else 
-            console.log('simple button detected');
+            console.log('no implementation yet');
     }
 
     #setup_copy(): void { 
+        console.log("TODO");
+    }
+
+    #setup_generate(): void { 
         console.log("TODO");
     }
 
@@ -139,12 +152,12 @@ export class EnvyButton extends HTMLButtonElement {
 
     #setup_dialog(_close_dia: boolean = false): void {
         if(_close_dia) {
-            if( !this.#get_target_parent('dialog')) return;
+            if( !this.#get_target_parent('dialog') ) return;
             this.#element_enabled = true;
             this.addEventListener("click", this.#close_dialog);
         }
         else {
-            if( !this.#get_target_by_id()) return;
+            if( !this.#get_target_by_id() ) return;
             this.#element_enabled = true;
             this.addEventListener("click", this.#open_dialog);
         }
@@ -162,6 +175,9 @@ export class EnvyButton extends HTMLButtonElement {
         // else if( this.#action_type === 'copy' ) {
             // this.removeEventListener('click', this.#copy_content );
         // }
+        // else if( this.#action_type === 'generate' ) {
+            // this.removeEventListener('click', this.#generate_content );
+        // }
         // dialogs
         else if( this.#action_type === 'open-dialog' ) {
             this.removeEventListener('click', this.#open_dialog );
@@ -169,7 +185,6 @@ export class EnvyButton extends HTMLButtonElement {
         else if( this.#action_type === 'close-dialog' ) {
             this.removeEventListener('click', this.#close_dialog );
         }
-
     }
 
     attributeChangedCallback() { }

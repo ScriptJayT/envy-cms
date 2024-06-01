@@ -23,7 +23,6 @@
                     <x-slot name="header">
                         <h2>Menu</h2>
                     </x-slot>
-
                     <ul>
                         <x-nav-link _to_route='dashboard' _label="{{ __('Dashboard') }}" />
                     </ul>
