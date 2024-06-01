@@ -23,7 +23,7 @@ $_accent = auth()->user()->settings->firstWhere('name', 'accent-theme')?->value 
 </head>
 
 <body class="font-sans text-base antialiased | text-theme-200 bg-invert-0">
-    <site class="block min-h-screen">
+    <site class="grid row-auto min-h-screen overflow-x-clip overflow-y-scroll">
 
         <!-- Page Heading -->
         <header class="relative isolate | flex flex-col {{ $_header_height }} | border-b border-invert-400">
@@ -41,12 +41,10 @@ $_accent = auth()->user()->settings->firstWhere('name', 'accent-theme')?->value 
         </header>
 
         <!-- Page Content -->
-        <main>
-            {{ $slot }}
-        </main>
+        <main>{{ $slot }}</main>
 
         @if (isset($footer))
-        <footer class="border-t border-invert-400">
+        <footer class="mt-auto border-t border-invert-400">
             <div class="max-w-screen-2xl mx-auto py-6 px-4 sm:px-6 lg:px-8">
                 {{ $footer }}
             </div>

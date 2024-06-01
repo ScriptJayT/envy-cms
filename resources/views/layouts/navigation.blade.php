@@ -10,26 +10,24 @@
             </div>
 
             <div class="flex items-center gap-4">
-                <!-- CLI -->
-                <x-actions.ghost x-data="" x-on:click.prevent="$dispatch('open-modal', 'open-cli')">{{ __('CLI') }} [C]</x-actions.ghost>
-                <x-modal name="open-cli" :show="false" focusable>
-                    <div class="p-6">
-                        <x-inspiration class="text-white mb-6" />
-                        <x-form.text-field value='search' type=search />
-                    </div>
-                </x-modal>
+                <x-modal.partial _button_text="CLI [C]" _button_type="ghost">
+                    <x-slot name="header">
+                        <h2>CLI</h2>
+                    </x-slot>
+                    <x-inspiration class="text-white mb-6" />
+                    <x-form.text-field value='search' type=search />
+                </x-modal.partial>
 
                 <!-- Main Menu -->
-                <x-actions.ghost x-data="" x-on:click.prevent="$dispatch('open-modal', 'open-menu')">{{ __('Menu') }} [N]</x-actions.ghost>
-                <x-modal name="open-menu" :show="false" focusable>
-                    <div class="p-6">
-                        <x-inspiration class="text-white mb-6" />
+                <x-modal.full _button_text="Menu [M]" _button_type="ghost">
+                    <x-slot name="header">
+                        <h2>Menu</h2>
+                    </x-slot>
 
-                        <ul>
-                            <x-nav-link _to_route='dashboard' _label="{{ __('Dashboard') }}" />
-                        </ul>
-                    </div>
-                </x-modal>
+                    <ul>
+                        <x-nav-link _to_route='dashboard' _label="{{ __('Dashboard') }}" />
+                    </ul>
+                </x-modal.full>
 
                 <!-- User Menu -->
                 <x-dropdown align="right" width="48">

@@ -22,7 +22,6 @@ class HistoryPoint extends Model
     }
    
     // getters, setters, relations
-
     public function user(): BelongsTo {
         return $this->belongsTo(User::class);
     }
