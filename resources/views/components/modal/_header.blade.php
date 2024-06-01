@@ -4,6 +4,6 @@
     <div class="text-xl">{{ $slot }}</div>
 
     @if($_button)
-    <button>Close</button>
+    <button is="envy-button" envy-action="close-dialog">Close</button>
     @endif
 </header>

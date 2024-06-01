@@ -64,7 +64,7 @@ $readonly = $attributes->get('readonly') != null;
                 <x-media.svg source='formfields.svg#redo' />
             </icon>
             @break
-            @case('toggle')
+            @case('toggle-input')
             <icon title="{{ __('Toggle') }}" class='block size-4'>
                 <x-media.svg source='formfields.svg#eye' />
             </icon>

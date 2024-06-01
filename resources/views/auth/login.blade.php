@@ -25,7 +25,7 @@
         </x-form.text-field>
 
         <!-- Password -->
-        <x-form.text-field :_label="__('Password')" :_value="old('password')" _action="toggle" type=password name=password required autocomplete=current-password>
+        <x-form.text-field :_label="__('Password')" :_value="old('password')" _action="toggle-input" type=password name=password required autocomplete=current-password>
             <x-form.error :messages="$errors->get('password')" class="mt-2" />
         </x-form.text-field>
 
