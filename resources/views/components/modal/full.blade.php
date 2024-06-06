@@ -26,7 +26,7 @@ $_generate_btn = !isset($button);
 {{ $button }}
 @endif
 
-<dialog data-id="{{ $_id }}" class="w-full h-full">
+<dialog data-id="{{ $_id }}" class="w-full h-full p-8 border border-accent-800 bg-theme-gradient-300">
     @if ( isset($header) )
     <x-modal._header>{{ $header }}</x-modal._header>
     @endif
