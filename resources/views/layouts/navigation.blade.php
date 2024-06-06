@@ -25,6 +25,9 @@
                     </x-slot>
                     <ul>
                         <x-nav-link _to_route='dashboard' _label="{{ __('Dashboard') }}" />
+
+                        {{-- TODO restrict to Admin Only --}}
+                        <x-nav-link _to_route='teams' _label="{{ __('Teams') }}" />
                     </ul>
                 </x-modal.full>
 
