@@ -2,7 +2,8 @@ import { $query } from '../helpers';
 
 export class EnvyButton extends HTMLButtonElement {
     static counter: number = 0;
-    
+    static observedAttributes: string[] = [];
+
     // input fns
     #toggle_type;
     #copy_content;

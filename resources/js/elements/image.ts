@@ -1,24 +1,18 @@
 export class EnvyImage extends HTMLImageElement {
     static counter: number = 0;
-
+    static observedAttributes: string[] = ['errored'];
     
     #identifier: string = '';
     #action: string = '';
-    #errored: boolean = false;
+    #setup: boolean = false;
 
-    #catch = () => {};
-    #action_on_error = () => {};
+    #catch = () => console.log("unset catch method", this.#setup);
 
     constructor(){
         super()
         
         EnvyImage.counter++
         this.#identifier = `Envy Image ${EnvyImage.counter}`;
-
-        this.#catch = () => {
-            console.log(`${this.#identifier} - Image not found.`);
-            this.#action_on_error();
-        }
     }
 
     connectedCallback() {
@@ -26,14 +20,14 @@ export class EnvyImage extends HTMLImageElement {
         console.log(this);
 
         this.#action = this.getAttribute("envy-action") ?? '';
-        this.#errored = this.getAttribute("errored") == 'true';
         
         if( this.#action === "error-switch-next" ) {
             console.log("Valid action found...");
             console.log("Switch for next Sibling on Error detected");
             
-            // add action for when img errors
-            this.#action_on_error = () => {
+            // set action for when img errors
+            this.#catch = () => {
+                console.log(`EVENT <<${this.#identifier}>> Catch fired`);
                 this.classList.add('hidden');
                 this.nextElementSibling?.classList.remove('hidden');
             }
@@ -42,14 +36,24 @@ export class EnvyImage extends HTMLImageElement {
             console.log("No valid action found...");
         }
 
-        if(this.#errored) this.#catch();
-        else this.onerror = () => this.#catch();
-
         console.groupEnd();
+
+        // the attributeChangedCallback does not wait for the connectedCallback, 
+        // so any methods may be used there before they are fully declared here
+        // we prevent that by only allowing the attributeChangedCallback after the connectedCallback is established
+        // so we need to manually check for attributes here first.
+        if(this.getAttribute("errored") == 'true') this.#catch();
+
+        this.#setup = true;
     }
 
-    attributeChangedCallback(name, oldValue, newValue) {
-        console.log(`Attribute ${name} has changed.`);
+    attributeChangedCallback(_name: string, _old: string, _new: string): void {
+        // wait for the connectedCallback
+        if(!this.#setup) return;
+
+        console.log(`EVENT <<${this.#identifier}>> Attribute <${_name}> changed from <${_old}> to <${_new}>`);
+        
+        if(_name == "errored" && _new == 'true') this.#catch();
     }
 
 }
