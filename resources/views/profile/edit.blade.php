@@ -9,6 +9,17 @@
 
     <div class="py-12">
         <div class="max-w-7xl mx-auto sm:px-6 lg:px-8 space-y-16">
+            <div>
+                <dl class="space-y-4">
+                    @foreach ( $user->teams as $_t )
+                    <li>
+                        <dt class="inline">{{ $_t->name }}</dt>
+                        <dd>{{ $_t->description }}</dd>
+                    </li>
+                    @endforeach
+                </dl>
+            </div>
+
             <div class="p-4 sm:p-8 sm:rounded-lg border bg-theme-gradient-300">
                 @include('profile.partials.latest-actions')
             </div>

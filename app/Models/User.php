@@ -67,6 +67,9 @@ class User extends Authenticatable implements MustVerifyEmail
     public function settings(): BelongsToMany {
         return $this->belongsToMany(UserSetting::class)->withPivot('value');
     }
+    public function teams(): BelongsToMany {
+        return $this->belongsToMany(Team::class);
+    }
 
     // envy custom
     public function isSystem() {
