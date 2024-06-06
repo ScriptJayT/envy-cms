@@ -1,4 +1,8 @@
-@props([ '_placeholder' => null, '_source' => null, '_descr' => '' ])
+@props([
+'_placeholder' => null,
+'_source' => null,
+'_descr' => ''
+])
 @php( $svg_placeholder = str_contains($_placeholder, '.svg#') )
 
 <picture {{ $attributes->except('class') }} class="block {{ $attributes->get('class') }}">
