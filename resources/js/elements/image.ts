@@ -10,7 +10,7 @@ export class EnvyImage extends HTMLImageElement {
         'error-switch-next', 
     ];
 
-    #catch = () => console.log("unset catch method", this.#setup);
+    #catch = () => {};
 
     constructor(){
         super()
@@ -59,5 +59,4 @@ export class EnvyImage extends HTMLImageElement {
         
         if(_name == "errored" && _new == 'true') this.#catch();
     }
-
 }
