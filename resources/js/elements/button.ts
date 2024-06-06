@@ -53,7 +53,11 @@ export class EnvyButton extends HTMLButtonElement {
 
             t.type = states[(states.indexOf(current_state) + 1) % states.length];
         }
-        this.#copy_content = () => {};
+        this.#copy_content = () => {
+            const t = this.#target as HTMLInputElement;
+            console.log(`EVENT[click] <<${this.#identifier}>> Input value copied`);
+            navigator.clipboard.writeText(`${t.value}`);
+        };
 
         // dialog related
         this.#open_dialog = () => {
@@ -112,10 +116,10 @@ export class EnvyButton extends HTMLButtonElement {
         //     console.log('<Generate button> detected');
         //     this.#setup_generate();
         // }
-        // else if( this.#action_type === 'copy-input' ) {
-        //     console.log('<Copy Input button> detected');
-        //     this.#setup_copy();
-        // }
+        else if( this.#action_type === 'copy-input' ) {
+            console.log('<Copy Input button> detected');
+            this.#setup_copy();
+        }
         // dialogs
         else if( this.#action_type === 'open-dialog' ) {
             console.log('<Open Dialog button> detected');
@@ -130,7 +134,9 @@ export class EnvyButton extends HTMLButtonElement {
     }
 
     #setup_copy(): void { 
-        console.log("TODO");
+        if( !this.#get_target_input() ) return;
+        this.#element_enabled = true;
+        this.addEventListener('click', this.#copy_content );
     }
 
     #setup_generate(): void { 
@@ -167,9 +173,9 @@ export class EnvyButton extends HTMLButtonElement {
             this.#target.removeEventListener('keydown', this.#toggle_type);
             this.removeEventListener('click', this.#toggle_type );
         }
-        // else if( this.#action_type === 'copy' ) {
-            // this.removeEventListener('click', this.#copy_content );
-        // }
+        else if( this.#action_type === 'copy-input' ) {
+            this.removeEventListener('click', this.#copy_content );
+        }
         // else if( this.#action_type === 'generate' ) {
             // this.removeEventListener('click', this.#generate_content );
         // }
