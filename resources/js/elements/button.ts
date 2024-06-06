@@ -37,24 +37,21 @@ export class EnvyButton extends HTMLButtonElement {
             
             if( _ev instanceof KeyboardEvent ) {
                 // only toggle on alt+rightArrow
-                if( _ev.key == 'ArrowRight' && _ev.altKey ) {
-                    _ev.preventDefault();
-                    _ev.stopImmediatePropagation();
-                    _ev.stopPropagation();
-                    console.log(`shortcut activated for <<${this.#identifier}>>, toggling...`);
-                }
-                else return;
+                if( _ev.key !== 'ArrowRight' || !_ev.altKey ) return
+
+                _ev.preventDefault();
+                _ev.stopImmediatePropagation();
+                _ev.stopPropagation();
+                console.log(`EVENT[keyboard] <<${this.#identifier}>> Type toggled`);
             }   
             else if( _ev instanceof PointerEvent ) {
                 this.#target.focus();
-                console.log(`button clicked for <<${this.#identifier}>>, toggling...`);
+                console.log(`EVENT[click] <<${this.#identifier}>> Type toggled`);
             }
             else 
-                console.log(`Unhandled Eventlistener for <input> related <<${this.#identifier}>>`);
+                return console.log(`EVENT[unhandled] <<${this.#identifier}>> Type not toggled`);
 
-            const new_state = (states.indexOf(current_state) + 1) % states.length;
-            
-            t.type = states[new_state];
+            t.type = states[(states.indexOf(current_state) + 1) % states.length];
         }
         this.#copy_content = () => {};
 
@@ -72,15 +69,14 @@ export class EnvyButton extends HTMLButtonElement {
     connectedCallback() {
         this.#action_type = this.getAttribute('envy-action') ?? 'default';
         
-        if( this.#valid_actions.includes(this.#action_type) ) {
-            console.groupCollapsed(this.#identifier);
-            console.log(this);
-            this.#setup();
-            console.groupEnd();
-        }
-        else {
-            console.log('invalid action found', this.#action_type)
-        }
+        if( !this.#valid_actions.includes(this.#action_type) )
+            return console.log('No valid action found', this.#action_type)
+        
+        console.groupCollapsed(this.#identifier);
+        console.log(this);
+        console.log('Valid action found...');
+        this.#setup();
+        console.groupEnd();
     }
 
     #get_target_input(): boolean {
@@ -107,32 +103,30 @@ export class EnvyButton extends HTMLButtonElement {
     }
 
     #setup(): void {
-        console.log('valid action found...');
-
         // inputs
         if( this.#action_type === 'toggle-input' ) {
-            console.log('toggle button detected');
+            console.log('<Toggle Input Type button> detected');
             this.#setup_toggle();
         }
         // else if( this.#action_type === 'generate' ) {
-        //     console.log('generate button detected');
+        //     console.log('<Generate button> detected');
         //     this.#setup_generate();
         // }
         // else if( this.#action_type === 'copy' ) {
-        //     console.log('copy button detected');
+        //     console.log('<Copy Input button> detected');
         //     this.#setup_copy();
         // }
         // dialogs
         else if( this.#action_type === 'open-dialog' ) {
-            console.log('open dialog button detected');
+            console.log('<Open Dialog button> detected');
             this.#setup_dialog();
         }
         else if( this.#action_type === 'close-dialog' ) {
-            console.log('close dialog button detected');
+            console.log('<Close Dialog button> detected');
             this.#setup_dialog(true);
         }
         else 
-            console.log('no implementation yet');
+            console.log('No implementation yet');
     }
 
     #setup_copy(): void { 

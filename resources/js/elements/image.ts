@@ -6,6 +6,10 @@ export class EnvyImage extends HTMLImageElement {
     #action: string = '';
     #setup: boolean = false;
 
+    #valid_actions: string[] = [
+        'error-switch-next', 
+    ];
+
     #catch = () => console.log("unset catch method", this.#setup);
 
     constructor(){
@@ -16,28 +20,28 @@ export class EnvyImage extends HTMLImageElement {
     }
 
     connectedCallback() {
-        console.groupCollapsed(this.#identifier);
-        console.log(this);
-
         this.#action = this.getAttribute("envy-action") ?? '';
         
+        if( !this.#valid_actions.includes(this.#action) )
+            return console.log("No valid action found");
+            
+        console.groupCollapsed(this.#identifier);
+        console.log(this);
+        console.log("Valid action found...");
+
         if( this.#action === "error-switch-next" ) {
-            console.log("Valid action found...");
-            console.log("Switch for next Sibling on Error detected");
+            console.log("<Switch for next Sibling on Error> detected");
             
             // set action for when img errors
             this.#catch = () => {
-                console.log(`EVENT <<${this.#identifier}>> Catch fired`);
+                console.log(`FN <<${this.#identifier}>> Catch fired`);
                 this.classList.add('hidden');
                 this.nextElementSibling?.classList.remove('hidden');
             }
         }
-        else {
-            console.log("No valid action found...");
-        }
 
         console.groupEnd();
-
+       
         // the attributeChangedCallback does not wait for the connectedCallback, 
         // so any methods may be used there before they are fully declared here
         // we prevent that by only allowing the attributeChangedCallback after the connectedCallback is established
@@ -51,7 +55,7 @@ export class EnvyImage extends HTMLImageElement {
         // wait for the connectedCallback
         if(!this.#setup) return;
 
-        console.log(`EVENT <<${this.#identifier}>> Attribute <${_name}> changed from <${_old}> to <${_new}>`);
+        console.log(`EVENT[attribute-change] <<${this.#identifier}>> Attribute <${_name}> changed from <${_old}> to <${_new}>`);
         
         if(_name == "errored" && _new == 'true') this.#catch();
     }
