@@ -16,7 +16,7 @@ export class EnvyButton extends HTMLButtonElement {
     #element_enabled: boolean = false;
     #valid_actions: string[] = [
         'default', 
-        'toggle-input', 'copy',
+        'toggle-input', 'copy-input',
         'open-dialog', 'close-dialog'
     ];
 
@@ -112,7 +112,7 @@ export class EnvyButton extends HTMLButtonElement {
         //     console.log('<Generate button> detected');
         //     this.#setup_generate();
         // }
-        // else if( this.#action_type === 'copy' ) {
+        // else if( this.#action_type === 'copy-input' ) {
         //     console.log('<Copy Input button> detected');
         //     this.#setup_copy();
         // }

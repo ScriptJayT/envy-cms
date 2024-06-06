@@ -20,9 +20,9 @@
             <legend class="select-none text-gray-500 text-2xl">Login Data</legend>
             <div class="space-y-6">
                 {{-- Handle --}}
-                <x-form.text-field readonly :value="$user->handle" _icon=unprotected :_label="__('Handle')" _action=copy />
+                <x-form.text-field readonly :value="$user->handle" _icon=unprotected :_label="__('Handle')" _action="copy-input" />
                 {{-- Email --}}
-                <x-form.text-field name=email type=email required :value="old('email',$user->email)" _icon=protected :_label="__('Registered Email')" _action=copy>
+                <x-form.text-field name=email type=email required :value="old('email',$user->email)" _icon=protected :_label="__('Registered Email')" _action="copy-input">
                     <x-slot:after_label>
                         @if($user->hasVerifiedEmail())
                         <icon title="Your email has been verified. Good job!" class="cursor-help block size-5 text-green-600 dark:text-green-400">
@@ -57,7 +57,7 @@
                 </x-form.text-field>
                 {{-- Password --}}
                 @if( !$user->isSystem() )
-                <x-form.text-field readonly value="The Password You Choose" _icon=protected :_label="__('Password')" />
+                <x-form.text-field readonly type=password value="The Password You Choose" _icon=protected :_label="__('Password')" _action="toggle-input" />
                 @endif
             </div>
         </fieldset>
@@ -66,11 +66,11 @@
             <legend class="select-none text-gray-500 text-2xl">Personal Data</legend>
             <div class="space-y-6">
                 {{-- Name --}}
-                <x-form.text-field :_label="__('Name')" _icon=protected _action=copy name=name :value="old('name', $user->name)" required autocomplete="name">
+                <x-form.text-field :_label="__('Name')" _icon=protected _action="copy-input" name=name :value="old('name', $user->name)" required autocomplete="name">
                     <x-form.error class="mt-2" :messages="$errors->get('name')" />
                 </x-form.text-field>
                 {{-- Profile Picture --}}
-                <x-form.text-field :_label="__('Profile Picture')" _icon=unprotected _action=copy name=profile_picture :value="old('profile_picture', $user->profile_picture)" />
+                <x-form.text-field :_label="__('Profile Picture')" _icon=unprotected _action="copy-input" name=profile_picture :value="old('profile_picture', $user->profile_picture)" />
                 <x-media.picture :_source="old('profile_picture', $user->profile_picture)" _placeholder="user.svg#profile" class="size-16 border border-current text-gray-500" title="Your current profile picture" />
             </div>
         </fieldset>

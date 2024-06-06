@@ -51,10 +51,10 @@ $readonly = $attributes->get('readonly') != null;
         'italic'=>$readonly, 'bg-transparent' ])>
 
         @if($_action)
-        <button is=envy-button type=button class="shrink-0 grid place-content-center px-3 py-2 outline-none focus:ring-2 focus:ring-inherit" envy-action="{{ $_action }}">
+        <button is=envy-button envy-action="{{ $_action }}" type=button class="shrink-0 grid place-content-center px-3 py-2 outline-none focus:ring-2 focus:ring-inherit">
 
             @switch($_action)
-            @case('copy')
+            @case('copy-input')
             <icon title="{{ __('Copy this fields data to your clipboard') }}" class='block size-4'>
                 <x-media.svg source='formfields.svg#clipboard' />
             </icon>
