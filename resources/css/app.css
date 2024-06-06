@@ -20,7 +20,6 @@
             --envy-bg-6: 0 2% 34%;
             --envy-bg-8: 0 0% 53%;
         }
-        
         &.light {
             color-scheme: light;
 
@@ -79,5 +78,14 @@
             --envy-a-6: 310 75% 36%; /*#A1178B*/
             --envy-a-8: 310 76% 27%; /*#7B116A*/
         }
+    }
+
+    envy-site:has(:modal, :popover-open) {
+        overflow: hidden;
+    }
+
+    ::backdrop {
+        backdrop-filter: blur(10px);
+        background: hsl(0 0% 75% / 0.125);
     }
 }

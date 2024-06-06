@@ -23,7 +23,7 @@ $_accent = auth()->user()->settings->firstWhere('name', 'accent-theme')?->value 
 </head>
 
 <body class="font-sans text-base antialiased | text-theme-200 bg-invert-0">
-    <site class="grid row-auto min-h-screen overflow-x-clip overflow-y-scroll">
+    <envy-site class="grid row-auto h-screen overflow-x-clip overflow-y-scroll">
 
         <!-- Page Heading -->
         <header class="relative isolate | flex flex-col {{ $_header_height }} | border-b border-invert-400">
@@ -50,7 +50,7 @@ $_accent = auth()->user()->settings->firstWhere('name', 'accent-theme')?->value 
             </div>
         </footer>
         @endif
-    </site>
+    </envy-site>
 </body>
 
 </html>

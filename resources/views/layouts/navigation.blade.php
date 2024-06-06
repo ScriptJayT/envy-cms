@@ -32,7 +32,7 @@
                 <x-dropdown align="right" width="48">
                     <x-slot name="trigger">
                         <x-actions.ghost class="flex items-center gap-2">
-                            <x-media.picture :_source="Auth::user()->profile_picture" _placeholder="user.svg#profile" class="size-4 text-gray-500" aria-hidden />
+                            <x-media.picture :_source="Auth::user()->profile_picture" _placeholder="user.svg#profile" class="size-4" aria-hidden />
 
                             <div>{{ Auth::user()->name }} [P]</div>
 
